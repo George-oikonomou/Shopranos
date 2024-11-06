@@ -21,7 +21,7 @@ const bloglistdefault = {
     },
     mounted() {
         var date = new Date();
-        date.setHours(date.getHours() + 2);
+        date.setHours(date.getHours());
         this.currentDate = date.toISOString();
         let searchParams = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => {

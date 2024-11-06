@@ -6,10 +6,12 @@
         <div v-for="(icon, index) in model.icons" class="col-md-4" :class="'col-lg-'+(this.pattern[0])+(this.pattern.length<=2?' col-md-12':' col-sm-6')">
             <div class="row">
                 <div class="d-inline-flex align-items-center justify-content-sm-center text-start">
-                    <a v-if="icon.link !== null && icon.link !== ''" :href="icon.link">
+                    <a v-if="icon.link !== null && icon.link !== ''" :href="icon.link" class="img-wrap">
                         <img :src="getImage(icon)" :alt="getAlt(icon)" />
                     </a>
-                    <img v-else :src="getImage(icon)" :alt="getAlt(icon)" />
+                    <span v-else class="img-wrap">
+                        <img v-else :src="getImage(icon)" :alt="getAlt(icon)" />
+                    </span>
                     <div class="ps-3">
                         <h6 v-if="icon.header !== null && icon.header !== ''" class="fw-medium mb-2 p" :style="'color: '+model.textColor">
                             {{model.icons[index]?.header}}

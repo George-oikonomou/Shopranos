@@ -8,7 +8,7 @@
             <ul class="list-unstyled d-flex flex-wrap align-items-center">
                 <template v-for="(category, index) in this.categoryList">
                     <li class="bg-secondary me-3" :class="this.categoryId == category.id ? 'active' : ''">
-                        <a class="fw-bold py-2 px-4" :href="this.categoryId != category.id ? '/blog/posts/'+category.alias : '/blog/posts'">
+                        <a class="btn btn-secondary fw-bold py-2 px-4" :href="this.categoryId != category.id ? '/blog/posts/'+category.alias : '/blog/posts'">
                             <span>{{category.title}}</span>
                         </a>
                     </li>
