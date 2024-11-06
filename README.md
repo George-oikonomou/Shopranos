@@ -3,7 +3,7 @@ ass kerdisoume
 
 
 
-git clone https://github.com/George-oikonomou/huaGrades.git
+git clone https://github.com/George-oikonomou/Shopranos
 
 
 
