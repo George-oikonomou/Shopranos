@@ -694,10 +694,11 @@ bg-danger {
 }
 
 .svg-button {
-    border-color: var(--bs-primary) background-color: var(--bs-primary-text);
+    border-color: var(--bs-primary);
+    background-color: var(--bs-primary-text);
 }
 
-    .svg-button
+.svg-button {
     background-color: var(--bs-primary-text);
     border-color:var(--bs-primary);
 }

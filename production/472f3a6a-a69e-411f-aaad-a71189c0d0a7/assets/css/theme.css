@@ -3112,6 +3112,9 @@ html body .error-wrapper img {
 .btn:hover, .btn:focus, .btn:active {
   font-weight: inherit;
 }
+:root {
+  --white: white;
+}
 .btn-primary {
   --bs-btn-color: var(--body-bg-first-color);
   --bs-btn-active-color: var(--body-bg-first-color);
@@ -3129,16 +3132,16 @@ html body .error-wrapper img {
 .btn-secondary {
   --bs-btn-color: var(--body-primary-txt-color);
   --bs-btn-active-color: var(--body-bg-second-color);
-  --bs-btn-hover-color: var(--body-bg-second-color);
+  --bs-btn-hover-color: var(--body-primary-txt-color);
   --bs-btn-disabled-color: var(--body-bg-second-color);
   --bs-btn-bg: var(--body-bg-second-color);
   --bs-btn-border-color: var(--body-bg-second-color);
   --bs-btn-disabled-bg: var(--body-primary-txt-color);
   --bs-btn-disabled-border-color: var(--body-primary-txt-color);
-  --bs-btn-hover-bg: var(--body-primary-txt-color);
-  --bs-btn-hover-border-color: var(--body-primary-txt-color);
-  --bs-btn-active-bg: var(--body-primary-txt-color);
-  --bs-btn-active-border-color: var(--body-primary-txt-color);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-bg: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
 }
 .btn-outline-primary {
   --bs-btn-color: var(--bs-primary);
@@ -4246,7 +4249,7 @@ body .form-control {
   border-color: var(--border-color) !important;
 }
 body .form-control ~ .maxLength {
-  background-color: var(--bs-body-bg);
+  background-color: var(--white);
 }
 body input:not([type=submit]):focus,
 body textarea:focus,
