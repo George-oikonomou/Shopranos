@@ -3427,6 +3427,7 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 
 .form-control:focus {
   box-shadow: none;
+  background-color: var(--body-bg-second-color);
 }
 .form-control[type=file] {
   position: relative;
@@ -4141,6 +4142,9 @@ a.btn,
 body a:not(.btn):not(.nav-link) {
   color: var(--body-secondary-txt-color);
 }
+footer a:not(.btn):not(.nav-link) {
+  color: var(--footer-txt-color) !important;
+}
 body.isSticky.isStickyRight .navbar-wrap .menu-wrap.sticky #navbarCollapse .navbar-nav {
   border-left-color: var(--border-color);
 }
@@ -4216,7 +4220,7 @@ body .text-info {
   color: var(--body-primary-txt-color) !important;
 }
 body .text-primary {
-  color: var(--bs-primary) !important;
+  color: var(--body-primary-txt-color) !important;
 }
 body .text-body {
   color: var(--body-primary-txt-color) !important;
@@ -4246,16 +4250,24 @@ body .dropdown-menu {
   --bs-dropdown-bg: var(--body-bg-first-color);
 }
 body .form-control {
-  border-color: var(--border-color) !important;
+  border-color: transparent !important;
+  background-color: var(--body-bg-second-color);
+  border-radius: 25px !important;
+}
+footer .input-group > .form-control {
+  background-color: var(--body-bg-second-color) !important;
 }
 body .form-control ~ .maxLength {
-  background-color: var(--white);
+  background-color: var(--bs-body-bg);
+}
+body .form-control.form-rounded {
+  border-radius: 25px !important;
 }
 body input:not([type=submit]):focus,
 body textarea:focus,
 body select:focus,
 body .form-control:focus {
-  border-color: var(--btn-bg-color) !important;
+  border-color: var(--border-color) !important;
 }
 body input::-moz-placeholder, body textarea::-moz-placeholder {
   color: var(--border-color) !important;
@@ -4345,6 +4357,10 @@ body .swiper-pagination-bullet-active:before {
   background: var(--body-primary-txt-color);
 }
 body .swiper-button-next, body .swiper-button-prev {
+  color: var(--body-secondary-txt-color);
+  background-color: var(--body-bg-second-color);
+}
+body .swiper-button-next:hover, body .swiper-button-prev:hover {
   color: var(--body-primary-txt-color);
   background-color: var(--body-bg-first-color);
 }
@@ -9412,6 +9428,11 @@ body header.topBarTop.stickyNavbarWrap .topbar {
 }
 .filterlist-sorting > div {
   height: 100%;
+}
+.filterlist-sorting .form-select {
+  border-radius: 25px;
+  background-color: var(--body-bg-second-color);
+  border-color: transparent;
 }
 .filterlist-sorting .form-select:focus {
   box-shadow: none;
