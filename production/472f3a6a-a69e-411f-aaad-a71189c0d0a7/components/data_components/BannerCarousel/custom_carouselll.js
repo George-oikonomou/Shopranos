@@ -1,4 +1,4 @@
-const bannercarouseldefault = {
+const bannercarouselcustom_carouselll = {
     props: {
         model: Object
     },
@@ -111,7 +111,7 @@ const bannercarouseldefault = {
     }
 }
 
-app.component('bannercarouseldefault', {
-    extends: bannercarouseldefault,
-    template: '#bannercarouseldefault'
+app.component('bannercarouselcustom_carouselll', {
+    extends: bannercarouselcustom_carouselll,
+    template: '#bannercarouselcustom_carouselll'
 });

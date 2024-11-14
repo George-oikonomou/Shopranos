@@ -38,17 +38,17 @@ const bannercarouselcustom_carousel = {
                 },
                 slidesPerView: this.customSlideDefinition,
                 slidesPerGroup: this.customSlideDefinition,
-                spaceBetween: 0,
+                spaceBetween: 10,
                 breakpoints: {
                     700: {
                         slidesPerView: this.customSlideDefinition,
                         slidesPerGroup: this.customSlideDefinition,
-                        spaceBetween: 0,
+                        spaceBetween: 10,
                     },
                     1100: {
                         slidesPerView: this.customSlideDefinition,
                         slidesPerGroup: this.customSlideDefinition,
-                        spaceBetween: 0,
+                        spaceBetween: 10,
                     },
                 }
             });
@@ -111,7 +111,7 @@ const bannercarouselcustom_carousel = {
     }
 }
 
-app.component('bannercarouseldefault', {
-    extends: bannercarouseldefault,
-    template: '#bannercarouseldefault'
+app.component('bannercarouselcustom_carousel', {
+    extends: bannercarouselcustom_carousel,
+    template: '#bannercarouselcustom_carousel'
 });

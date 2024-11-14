@@ -1,1 +1,19 @@
+.custom-banner-carousel .swiper {
+  background-color: var(--body-bg-second-color);
+  border-width: 50px 50px 0px 50px;
+  border-style: solid;
+  border-color: var(--body-bg-second-color);
+}
 
+body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu.show {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.custom-categorieslist .card {
+  box-shadow: none;
+}
+
+.custom-categorieslist .card:hover {
+  box-shadow: 0px 16px 35px 0px rgba(0, 0, 0, 0.15);
+}

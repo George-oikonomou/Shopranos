@@ -9,6 +9,18 @@ const categorieslistcustom_categorieslist = {
             categoryTitle: ''
         }
     },
+    computed: {
+        getCategoryDescription() {
+            return (categoryAlias) => {
+                const cleanAlias = categoryAlias.split('/').pop();
+                let description = "";
+                this._findCategoryByAlias(cleanAlias, category => {
+                    description = category.description;
+                });
+                return description;
+            };
+        }
+    },
     mounted() {
         if (window.location.pathname.split('/')[1] === "categories") {
             let categoryAlias = window.location.pathname.split('/')[2];
@@ -50,7 +62,8 @@ const categorieslistcustom_categorieslist = {
                 return "/images/no_image.png";
             }
             return category.image.link;
-        }
+        },
+    
     }
 }
 

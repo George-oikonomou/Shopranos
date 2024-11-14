@@ -3124,10 +3124,10 @@ html body .error-wrapper img {
   --white: white;
 }
 .btn-primary {
-  --bs-btn-color: var(--body-bg-first-color);
-  --bs-btn-active-color: var(--body-bg-first-color);
-  --bs-btn-hover-color: var(--body-bg-first-color);
-  --bs-btn-disabled-color: var(--body-bg-first-color);
+  --bs-btn-color: var(--body-primary-txt-color);
+  --bs-btn-active-color: var(--body-primary-txt-color);
+  --bs-btn-hover-color: var(--body-primary-txt-color);
+  --bs-btn-disabled-color: var(--body-primary-txt-color);
   --bs-btn-bg: var(--btn-bg-color);
   --bs-btn-border-color: var(--btn-bg-color);
   --bs-btn-disabled-bg: var(--btn-bg-color);
@@ -3152,19 +3152,20 @@ html body .error-wrapper img {
   --bs-btn-active-border-color: var(--bs-primary);
 }
 .btn-outline-primary {
-  --bs-btn-color: var(--bs-primary);
+  --bs-btn-color: var(--body-primary-txt-color);
   --bs-btn-bg: var(--body-bg-first-color);
-  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-border-color);
   --bs-btn-disabled-bg: var(--body-bg-first-color);
-  --bs-btn-disabled-border-color: var(--bs-primary);
-  --bs-btn-disabled-color: var(--bs-primary);
-  --bs-btn-hover-color: var(--bs-primary);
-  --bs-btn-hover-bg: var(--body-bg-first-color);
-  --bs-btn-hover-border-color: var(--bs-primary);
-  --bs-btn-active-bg: var(--body-bg-first-color);
-  --bs-btn-active-color: var(--bs-primary);
-  --bs-btn-active-border-color: var(--bs-primary);
+  --bs-btn-disabled-border-color: var(--body-primary-txt-color);
+  --bs-btn-disabled-color: var(--body-primary-txt-color);
+  --bs-btn-hover-color: var(--body-primary-txt-color);
+  --bs-btn-hover-bg: var(--body-bg-second-color);
+  --bs-btn-hover-border-color: var(--bs-border-color);
+  --bs-btn-active-bg: var(--body-bg-second-color);
+  --bs-btn-active-color: var(--body-primary-txt-color);
+  --bs-btn-active-border-color: var(--bs-border-color);
 }
+
 .btn-outline-secondary {
   --bs-btn-color: var(--body-secondary-txt-color);
   --bs-btn-bg: var(--body-bg-first-color);
@@ -4368,16 +4369,22 @@ body .product-wrap .product-list .s-heart:before {
 body .product-wrap .product-cart-qty .add-to-cart .cart-item-circle {
   background: color-mix(in srgb, var(--bs-primary) 75%, rgba(0, 0, 0, 0.3)) !important;
 }
+body .banner-carousel .swiper .swiper-pagination-bullet:before {
+  background-color: var(--body-bg-first-color);
+}
 body .swiper-pagination-bullet:before {
   background: var(--body-bg-second-color);
 }
-body .swiper-pagination-bullet:hover:before {
+body .swiper-pagination-bullet:hover:before,
+body .banner-carousel .swiper .swiper-pagination-bullet:hover:before {
   background: var(--border-color);
 }
-body .swiper-pagination-bullet-active {
+body .swiper-pagination-bullet-active,
+body .banner-carousel .swiper .swiper-pagination-bullet-active {
   border-color: var(--border-color);
 }
-body .swiper-pagination-bullet-active:before {
+body .swiper-pagination-bullet-active:before,
+body .banner-carousel .swiper .swiper-pagination-bullet-active:before  {
   background: var(--border-color);
 }
 body .swiper-button-next, body .swiper-button-prev {
@@ -9519,22 +9526,22 @@ body header.topBarTop.stickyNavbarWrap .topbar {
 }
 @media only screen and (min-width: 1440px) {
   .filterlist-single_product .card .product-thumb img {
-    height: min(max(180px, 180 / 1440 * 100vw), 180px) !important;
+    height: min(max(350px, 180 / 1440 * 100vw), 350px) !important;
   }
 }
 @media only screen and (min-width: 744px) and (max-width: 1439px) {
   .filterlist-single_product .card .product-thumb img {
-    height: min(max(180px, 180 / 744 * 100vw), 180px) !important;
+    height: min(max(350px, 180 / 744 * 100vw), 350px) !important;
   }
 }
 @media only screen and (max-width: 743px) {
   .filterlist-single_product .card .product-thumb img {
-    height: min(max(180px, 180 / 375 * 100vw), 180px) !important;
+    height: min(max(350px, 180 / 375 * 100vw), 350px) !important;
   }
 }
 @media only screen and (min-width: 1921px) {
   .filterlist-single_product .card .product-thumb img {
-    height: calc(180px * 2) !important;
+    height: calc(350px * 2) !important;
   }
 }
 .filterlist-single_product .card .product-thumb img.no-img {

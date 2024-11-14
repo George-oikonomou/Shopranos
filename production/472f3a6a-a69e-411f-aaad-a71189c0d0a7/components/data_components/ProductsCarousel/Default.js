@@ -62,8 +62,8 @@ const productscarouseldefault = {
                             },
                         },
                         1100: {
-                            slidesPerView: 3,
-                            slidesPerGroup: 3,
+                            slidesPerView: 4,
+                            slidesPerGroup: 4,
                             spaceBetween: 40,
                             grid: {
                                 rows: 2,
@@ -94,8 +94,8 @@ const productscarouseldefault = {
                             spaceBetween: 16 * 3,
                         },
                         1100: {
-                            slidesPerView: 3,
-                            slidesPerGroup: 3,
+                            slidesPerView: 4,
+                            slidesPerGroup: 4,
                             spaceBetween: 16 * 3,
                         },
                     }
