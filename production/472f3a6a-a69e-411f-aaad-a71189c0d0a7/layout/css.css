@@ -1,3 +1,27 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Inter";
+  src: url("/production/472f3a6a-a69e-411f-aaad-a71189c0d0a7//assets/fonts/Inter.ttf") format("truetype"), url("/production/472f3a6a-a69e-411f-aaad-a71189c0d0a7//assets/fonts/Inter.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400, 700;
+  font-style: normal;
+  src: url(https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap);
+}
+
+:root {
+  --bs-border-second-color: #ffe473;
+  --body-bg-third-color: rgb(251, 244, 217);
+  --body-bg-darker-color: #716138;
+  --xs-border-radius: 7px;
+  --small-border-radius: 10px;
+  --normal-border-radius: 25px;
+  --large-border-radius: 45px;
+}
+
 .custom-banner-carousel .swiper {
   background-color: var(--body-bg-second-color);
   border-width: 50px 50px 0px 50px;
@@ -8,6 +32,35 @@
 body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu.show {
   max-height: 70vh;
   overflow-y: auto;
+  scrollbar-color: var(--body-bg-first-color);
+  background-color: white;
+}
+
+.custom-categorieslist .category-content {
+  display: flex;
+  align-items: center;
+}
+
+.custom-categorieslist .category-img {
+  width: 40%;
+  box-shadow: rgb(101, 96, 75) 4px 4px 6px 2px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 4px 4px);
+  border-radius: var(--small-border-radius) !important;
+}
+
+.custom-categorieslist .category-text {
+  padding-left: 15px;
+  height: 100%;
+  width: 60%;
+}
+
+.custom-categorieslist .model-header,
+.custom-cart-wrapper .model-header,
+.custom-filterlist .model-header {
+  font-family: "Felix Titling", "Inter";
+  letter-spacing: 0.05em;
+  line-height: 140px;
+  color: var(--body-bg-third-color);
 }
 
 .custom-categorieslist .card {
@@ -16,4 +69,181 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 
 .custom-categorieslist .card:hover {
   box-shadow: 0px 16px 35px 0px rgba(0, 0, 0, 0.15);
+}
+
+.custom-categorieslist .category-title {
+  font-family: 'Felix Titling', "Inter";
+  font-weight: 400;
+  line-height: 58px;
+}
+
+.custom-categorieslist .category-description {
+  font-family: "Baskervville";
+  font-weight: 400;
+  line-height: 39px;
+  color: var(--border-color);
+}
+
+.product-single .product-info .product-variants .attribute .variantValues .variantValue input:checked ~ label {
+  color: var(--border-color) !important;
+}
+
+.custom-categorieslist-home .category-row .card {
+  width: 100%;
+  flex-direction: row;
+}
+
+.custom-categorieslist-home .category-img {
+  flex: 1 1 0%;
+  max-width: 20%;
+  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: rgb(101, 96, 75) 4px 4px 6px 2px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 4px 4px);
+  border-radius: 10px !important;
+}
+
+.custom-categorieslist-home .category-text.order-2,
+.custom-categorieslist-home .category-text.order-1 {
+  flex: 2 1 0%;
+  padding-top: 5px;
+}
+
+
+#signin-modal .modal-content::before {
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  background-image: url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/6b97fe99-92fb-4c91-b971-aa224737fe2f/6b97fe99-92fb-4c91-b971-aa224737fe2f);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  filter: blur(1px);
+}
+
+#signin-modal .modal-content {
+  background-color: var(--border-color);
+}
+
+#signin-modal .card-header-tabs .nav-item {
+  z-index: 1;
+}
+
+#signin-modal .card-header-tabs .nav-item a {
+  background-color: var(--body-bg-first-color);
+  margin-right: 5px;
+  border-radius: var(--normal-border-radius)
+}
+
+#signin-modal .nav-link.active,
+#signin-modal .nav-link:hover {
+  text-decoration-color: var(--border-color) !important;
+}
+
+.modal-body #signin-tab {
+  color: white;
+}
+
+#signin-tab .btn {
+  border-radius: var(--normal-border-radius);
+}
+
+.custom-cart-wrapper {
+  position: relative;
+}
+
+.custom-cart-wrapper:has(.no-items-wrapper)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, var(--body-bg-first-color), rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 65%, var(--body-bg-first-color)), url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+.custom-cart-wrapper .search-wrapper .form-control {
+  background-color: var(--body-bg-third-color);
+}
+
+.custom-cart-wrapper .no-items-wrapper {
+  display: flex;
+  align-items: center;
+  height: 30vw;
+}
+
+.custom-cart-wrapper .no-items-wrapper .card {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem !important;
+  border-radius: var(--small-border-radius);
+  background-color: var(--body-bg-second-color-op40) !important;
+}
+
+footer.border-top {
+  border-top: none !important;
+}
+
+.filterlist-single_product .card .product-thumb {
+  box-shadow: 3px 3px 4px 1px rgba(105,105,105,0.8), 
+              8px 8px 3px var(--body-bg-darker-color), 
+              -6px -6px 2px var(--body-bg-third-color), 
+              -3px -3px 4px 2px rgba(0, 0, 0, 0.5);
+  border-radius: var(--xs-border-radius);
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 744px) and (max-width: 1439px) {
+  .custom-categorieslist .category-title {
+    line-height: 42px; /* Reduced to maintain ratio */
+  }
+
+  .custom-categorieslist .category-description {
+    line-height: 28px; /* Reduced to maintain ratio */
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 743px) {
+  .custom-categorieslist .col-sm-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 743px) {
+  .custom-categorieslist .card {
+    width: 100%;
+    margin-inline: auto;
+    height: fit-content;
+  }
+}
+
+/* smart-phones */
+@media only screen and (max-width: 576px) {
+  .custom-categorieslist .category-title {
+    line-height: 30px; /* Reduced to maintain ratio */
+  }
+
+  .custom-categorieslist .category-description {
+    line-height: 20px; /* Reduced to maintain ratio */
+  }
+
+  .custom-categorieslist .category-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custom-categorieslist .category-img,
+  .custom-categorieslist .category-text {
+    width: 100% !important;
+  }
 }

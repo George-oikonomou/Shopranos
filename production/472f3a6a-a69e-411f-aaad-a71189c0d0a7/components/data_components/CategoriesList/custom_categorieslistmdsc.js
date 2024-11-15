@@ -1,4 +1,4 @@
-const categorieslistcustom_categorieslist = {
+const categorieslistcustom_categorieslistmdsc = {
     props: {
         model: Object
     },
@@ -20,12 +20,6 @@ const categorieslistcustom_categorieslist = {
                 return description;
             };
         },
-        sortedNavigations() {
-            return this.navigations ? [...this.navigations].sort((a, b) => a.navigationTitle.localeCompare(b.navigationTitle)) : [];
-        },
-        sortedCategories() {
-            return this.categories ? [...this.categories].sort((a, b) => a.title.localeCompare(b.title)) : [];
-        }
     },
     mounted() {
         if (window.location.pathname.split('/')[1] === "categories") {
@@ -68,12 +62,11 @@ const categorieslistcustom_categorieslist = {
                 return "/images/no_image.png";
             }
             return category.image.link;
-        },
-    
+        }
     }
 }
 
-app.component('categorieslistcustom_categorieslist', {
-    extends: categorieslistcustom_categorieslist,
-    template: '#categorieslistcustom_categorieslist'
+app.component('categorieslistcustom_categorieslistmdsc', {
+    extends: categorieslistcustom_categorieslistmdsc,
+    template: '#categorieslistcustom_categorieslistmdsc'
 });

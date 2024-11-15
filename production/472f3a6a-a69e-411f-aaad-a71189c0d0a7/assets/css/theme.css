@@ -3128,14 +3128,14 @@ html body .error-wrapper img {
   --bs-btn-active-color: var(--body-primary-txt-color);
   --bs-btn-hover-color: var(--body-primary-txt-color);
   --bs-btn-disabled-color: var(--body-primary-txt-color);
-  --bs-btn-bg: var(--btn-bg-color);
-  --bs-btn-border-color: var(--btn-bg-color);
-  --bs-btn-disabled-bg: var(--btn-bg-color);
-  --bs-btn-disabled-border-color: var(--btn-bg-color);
-  --bs-btn-hover-bg: var(--btn-bg-color);
-  --bs-btn-hover-border-color: var(--btn-bg-color);
-  --bs-btn-active-bg: var(--btn-bg-color);
-  --bs-btn-active-border-color: var(--btn-bg-color);
+  --bs-btn-bg: var(--body-bg-second-color);
+  --bs-btn-border-color: var(--body-bg-second-color);
+  --bs-btn-disabled-bg: var(--body-bg-second-color);
+  --bs-btn-disabled-border-color: var(--body-bg-second-color);
+  --bs-btn-hover-bg: var(--body-bg-second-color);
+  --bs-btn-hover-border-color: var(--body-bg-second-color);
+  --bs-btn-active-bg: var(--body-bg-second-color);
+  --bs-btn-active-border-color: var(--body-bg-second-color);
 }
 .btn-secondary {
   --bs-btn-color: var(--body-primary-txt-color);
@@ -4283,7 +4283,10 @@ footer .input-group > .form-control {
   background-color: var(--body-bg-second-color) !important;
 }
 body .form-control ~ .maxLength {
-  background-color: var(--bs-body-bg);
+  background-color: var(--body-bg-second-color) !important;
+}
+body .form-control ~ .maxLength.bg-white {
+  background-color: transparent;
 }
 body .form-control.form-rounded {
   border-radius: 25px !important;
@@ -4805,9 +4808,9 @@ body .cart-wrapper aside .gift-wrap .widget-item {
 body .cart-wrapper aside .gift-wrap .gift-title {
   color: var(--bs-primary);
 }
-body .cart-wrapper .no-items-wrapper:before {
+/* body .cart-wrapper .no-items-wrapper:before {
   background: linear-gradient(90deg, transparent 12%, var(--bs-primary) 0%, var(--body-primary-txt-color) 55%, transparent 88%);
-}
+} */
 body .cart-wrapper .no-items-wrapper:after {
   background: var(--body-bg-first-color);
 }
@@ -11690,8 +11693,8 @@ body header.topBarTop.stickyNavbarWrap .topbar {
 }
 .cart-wrapper .no-items-wrapper {
   position: relative;
-}
-.cart-wrapper .no-items-wrapper:before, .cart-wrapper .no-items-wrapper:after {
+} 
+/* .cart-wrapper .no-items-wrapper:before, .cart-wrapper .no-items-wrapper:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -11701,11 +11704,11 @@ body header.topBarTop.stickyNavbarWrap .topbar {
   border-radius: 100%;
   transform: translateX(-50%);
   z-index: -1;
-}
-.cart-wrapper .no-items-wrapper:before {
+} */
+/* .cart-wrapper .no-items-wrapper:before {
   top: -34vw;
   filter: blur(50px);
-}
+} */
 .cart-wrapper .no-items-wrapper:after {
   top: -38vw;
 }

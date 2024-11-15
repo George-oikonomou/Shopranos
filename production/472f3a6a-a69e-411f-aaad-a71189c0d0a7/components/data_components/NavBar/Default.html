@@ -294,7 +294,7 @@
                 <!-- Cart -->
                 <div v-if="!isLoading" :key="cartTotal" class="order-last cart-wrap">
                     <div @click="toggleCart()" id="navcart-icon" role="button"
-                         class="align-self-center p-2 btn bg-secondary position-relative ms-1">
+                         class="align-self-center p-2 btn position-relative ms-1">
                         <span class="s-cart large"><span class="d-none">##Cart##</span></span>
                         <span class="cart-total" :class="cartTotal == 0 ? 'd-none': ''">{{cartTotal}}</span>
                     </div>

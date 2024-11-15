@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div v-if="this.blogCategory!==undefined && this.blogCategory!==null" class="single-blog__category mb-4">
-                <a :href="'/blog/posts/'+this.blogCategory.alias" class="btn btn-secondary fw-bold py-2 px-4">{{this.blogCategory.title}}</a>
+                <a :href="'/blog/posts/'+this.blogCategory.alias" style="border-radius: 45px;" class="btn btn-secondary fw-bold py-2 px-4">{{this.blogCategory.title}}</a>
             </div>
             <h1 class="h2 mb-4 single-blog__title">{{this.blog.title}}</h1>
             <span class="line d-block mb-4"></span>
@@ -118,14 +118,14 @@
                                 <form class="w-100 needs-validation ms-3" novalidate="">
                                     <div class="mb-2 position-relative">
                                         <input v-model="this.nickname" class="form-control" maxlength="50" type="text" placeholder="##Nickname##" autocomplete="off">
-                                        <div class="maxLength text-secondary position-absolute end-0 me-2 top-50 translate-middle-y">
+                                        <div class="maxLength text-secondary position-absolute end-0 me-2 top-50 translate-middle-y bg-white">
                                             {{this.nickname?.length}}/50
                                         </div>
                                         <small v-if="nicknameHasValidationError===true" class="text-danger w-100 mt-2 d-block" style="font-size: 0.75rem;">##NicknameInvalidMessage##</small>
                                     </div>
                                     <div class="mb-2 position-relative">
                                         <textarea v-model="this.comment" class="form-control" rows="4" placeholder="##CommentDescription##" maxlength="500" required=""></textarea>
-                                        <div class="maxLength text-secondary position-absolute end-0 me-2 mt-2 top-0">
+                                        <div class="maxLength text-secondary position-absolute end-0 me-2 mt-2 top-0 bg-white">
                                             {{this.comment?.length}}/500
                                         </div>
                                         <small v-if="commentHasValidationError===true" class="text-danger w-100 mt-2 d-block" style="font-size: 0.75rem;">##CommentInvalidMessage##</small>

@@ -95,8 +95,8 @@
                 ]">
                 <form action="" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
                     <div class="input-group flex-nowrap">
-                        <input v-model="email" class="form-control px-3 py-2 px-lg-4 py-lg-3 z-2 border-theme" type="email" name="EMAIL" placeholder="email" required="" />
-                        <button @click.prevent="subscribeEmail" class="btn btn-secondary ms-n4 px-3 px-lg-4 z-3" type="submit" name="subscribe">
+                        <input v-model="email" style="border-radius: 45px;" class="form-control px-3 py-2 px-lg-4 py-lg-3 z-2 border-theme" type="email" name="EMAIL" placeholder="email" required="" />
+                        <button @click.prevent="subscribeEmail" style="border-radius: 45px;" style="background: linear-gradient(90deg, #968D5C 0%, #B4AA8A 90.12%);" class="btn btn-primary ms-n4 px-3 px-lg-4 z-3" type="submit" name="subscribe">
                             <span v-bind:class="{hidden: isLoading}"> ##Subscribe## </span>
                             <span v-bind:class="{hidden: !isLoading}" class="spinner-border spinner-border-sm d-none"
                                   role="status" aria-hidden="true"></span>
