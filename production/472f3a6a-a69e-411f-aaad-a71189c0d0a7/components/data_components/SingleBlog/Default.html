@@ -27,14 +27,14 @@
                 <img :src="blog.mediaItem.link" :alt="blog.header" onerror="this.style.display='none'">
             </div>
             <div class="single-blog__content-wrap mb-4">
-                <div class="single-blog__share">
+                <!-- <div class="single-blog__share">
                     <a :href="'https://www.facebook.com/sharer/sharer.php?u='+'bla'" target="_blank">
                         <span class="s-facebook large"><span class="d-none">Facebook ##Link##</span></span>
                     </a>
                     <a :href="'https://www.linkedin.com/shareArticle?mini=true&url='+'bla'" target="_blank">
                         <span class="s-linkedin large"><span class="d-none">Linkedin ##Link##</span></span>
                     </a>
-                </div>
+                </div> -->
                 <div class="single-blog__content-wrap__inner">
                     <div class="single-blog__content" v-html="blog.content" id="article-wrap"></div>
                 </div>
@@ -49,7 +49,7 @@
             </div>
             <div v-if="this.model.allowComments" class="single-blog__comments mt-5" id="comments">
                 <h2 class="h4">
-                    ##Comments##<span class="badge bg-secondary text-body align-middle ms-2">{{this.totalComments}}</span>
+                    ##Comments##<span class="badge text-body align-middle ms-2">{{this.totalComments}}</span>
                 </h2>
                 <div v-if="!isLoadingData" v-for="(comment, index) in this.comments" class="d-flex align-items-start py-4 border-bottom">
                     <img class="rounded-circle" onerror="this.src='/images/blank.png';"

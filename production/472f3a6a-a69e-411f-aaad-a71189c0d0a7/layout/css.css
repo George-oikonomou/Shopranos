@@ -201,6 +201,10 @@ footer.border-top {
   margin-right: 10px;
 }
 
+.iconblock-wrapper .icon-header {
+  color: white;
+}
+
 @media only screen and (min-width: 744px) and (max-width: 1439px) {
   .custom-categorieslist .category-title {
     line-height: 42px; /* Reduced to maintain ratio */
