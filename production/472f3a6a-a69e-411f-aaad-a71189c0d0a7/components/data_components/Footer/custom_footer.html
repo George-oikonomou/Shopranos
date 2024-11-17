@@ -94,8 +94,7 @@
                             v-show="subnavVisibility[index] && subnavVisibility[index][subindex]"
                             :style="{
                                 opacity: subnavAnimation[index] && subnavAnimation[index][subindex] ? 1 : 0,
-                                transition: 'opacity 1s ease-in',
-                                transitionDelay: `${subindex * 150}ms`
+                                transition: 'opacity 0.5s ease-in',
                             }">
                             <a :href="subnav.url" class="subnav-link"
                                 :style="{

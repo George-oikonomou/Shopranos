@@ -16,8 +16,8 @@
         </section>
     </div>
 </section>
-<section :id="'comp-'+this.model.id" v-else-if="(cart!=null && cart.cartItems.length > 0) || emptyCartAfterDeletion" class="container cart-wrapper custom-cart-wrapper">
-    <div class="row">
+<section :id="'comp-'+this.model.id" v-else-if="(cart!=null && cart.cartItems.length > 0) || emptyCartAfterDeletion" class="container-lg cart-wrapper custom-cart-wrapper">
+    <div class="row d-flex align-items-center">
         <div class="col-lg-8">
             <!-- Actions -->
             <div class="actions-wrapper row justify-content-between">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="undoDeletionActive" class="undo-wrapper">
+            <div v-if="undoDeletionActive" class="undo-wrapper mt-2">
                 <span class="s-check large"><span class="d-none">##Remove##</span></span>
                 <div class="text-wrap">
                     <span class="text">##Product##</span>

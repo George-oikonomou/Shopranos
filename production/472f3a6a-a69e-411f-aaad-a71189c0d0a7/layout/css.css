@@ -16,10 +16,17 @@
   --bs-border-second-color: #ffe473;
   --body-bg-third-color: rgb(251, 244, 217);
   --body-bg-darker-color: #716138;
+  --body-bg-golden-color: #DDC780;
   --xs-border-radius: 7px;
   --small-border-radius: 10px;
   --normal-border-radius: 25px;
   --large-border-radius: 45px;
+}
+
+body .form-control {
+  border-color: transparent !important;
+  background-color: var(--body-bg-second-color);
+  border-radius: var(--normal-border-radius) !important;
 }
 
 .custom-banner-carousel .swiper {
@@ -170,8 +177,68 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   z-index: -1;
 }
 
+.custom-cart-wrapper:has(.items-wrapper)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, var(--body-bg-first-color), rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, var(--body-bg-first-color)), url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/9a1ebd4b-e251-47ab-89f8-b23b8d51134d/9a1ebd4b-e251-47ab-89f8-b23b8d51134d);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.container-lg.custom-cart-wrapper:has(.items-wrapper) {
+  padding: 5% 10%;
+  max-width: 100vw;
+}
+
+.items-wrapper ~ .undo-wrapper {
+  border-radius: var(--normal-border-radius);
+}
+
+.items-wrapper ~ .undo-wrapper .s-check {
+  cursor: default;
+}
+
 .custom-cart-wrapper .search-wrapper .form-control {
   background-color: var(--body-bg-third-color);
+}
+
+.custom-cart-wrapper .items-wrapper {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--normal-border-radius);
+  min-height: 20vw;
+}
+
+.custom-cart-wrapper .aside-wrap {
+  box-shadow: 4px 4px 6px var(--body-bg-golden-color);
+  border-radius: var(--small-border-radius);
+  border: 0px !important;
+}
+
+.custom-cart-wrapper .aside-wrap button {
+  background-color: var(--body-bg-golden-color);
+}
+
+.items-wrapper .border-top:first-child {
+  border-top: 0px !important;
+}
+
+.cart-wrapper .items-wrapper .cart-item .img-wrap img {
+  aspect-ratio: unset;
+  max-height: unset !important;
+}
+
+@media only screen and (max-width: 743px) {
+  .container-lg.custom-cart-wrapper:has(.items-wrapper) {
+    padding: 3%;
+  }
 }
 
 .custom-cart-wrapper .no-items-wrapper {
@@ -192,6 +259,21 @@ footer.border-top {
   border-top: none !important;
 }
 
+/* media icon glow effect */
+.s-instagram,
+.s-facebook,
+.s-linkedin,
+.s-youtube {
+  transition: text-shadow .3s ease;
+}
+
+.s-instagram:hover,
+.s-facebook:hover,
+.s-linkedin:hover,
+.s-youtube:hover {
+  text-shadow: 2px 1px 7px var(--body-bg-second-color), 0 0 7px whitesmoke;
+}
+
 .filterlist-single_product .card .product-thumb {
   box-shadow: 3px 3px 4px 1px rgba(105,105,105,0.8), 
               8px 8px 3px var(--body-bg-darker-color), 
@@ -199,10 +281,49 @@ footer.border-top {
               -3px -3px 4px 2px rgba(0, 0, 0, 0.5);
   border-radius: var(--xs-border-radius);
   margin-right: 10px;
+  transition: transform 250ms ease-in-out;
+}
+
+.filterlist-single_product .card .product-thumb:hover {
+  transform: translate3d(4px, -4px, 5px);
+}
+
+.filterlist-single_product .card .product-thumb img:hover {
+  transform: none !important;
 }
 
 .iconblock-wrapper .icon-header {
   color: white;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  border-radius: 50%;
+}
+
+.page-link.active, .active > .page-link {
+  z-index: 3;
+  color: var(--border-color);
+  background-color: var(--body-bg-second-color);
+}
+
+.filterlist-content__sidebar #shop-sidebar {
+  background-color: var(--body-bg-second-color);
+  border-radius: var(--normal-border-radius);
+  box-shadow: rgb(101, 96, 75) 4px 4px 6px 2px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 4px 4px);
+}
+
+/* custom-banner */
+.custom-banner-carousel .swiper {
+  position: initial;
+}
+/* body .banner-carousel .swiper .swiper-pagination-bullet::before {
+  background-color: var(--body-bg-second-color) !important;
+} */
+
+/* footer */
+footer ul.list-unstyled {
+  margin-bottom: 0px;
 }
 
 @media only screen and (min-width: 744px) and (max-width: 1439px) {

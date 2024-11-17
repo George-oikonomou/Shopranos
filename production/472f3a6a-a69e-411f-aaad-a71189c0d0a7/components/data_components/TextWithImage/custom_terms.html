@@ -1,16 +1,103 @@
-<section :id="'comp-'+this.model.id" :class="this.model?.cssClass" class="container textwithimage-wrapper">
-    <div class="row align-items-center justify-content-center">
-        <div v-if="this.imgUrl !== null" :class="this.imageClass" class="img-wrap">
-            <img class="w-100" :src="this.imgUrl" :alt="this.imgAlt" />
+<section 
+    :id="'comp-'+this.model.id" 
+    :class="this.model?.cssClass" 
+    class="container textwithimage-wrapper"
+    style="border: 1px solid rgba(0, 0, 0, 0.1); 
+           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+           border-radius: 12px; 
+           background: var(--body-bg-second-color);
+           padding: 20px; 
+           overflow: hidden; 
+           transition: transform 0.3s ease, box-shadow 0.3s ease;"
+    @mouseover="e => {
+        e.currentTarget.style.transform = 'scale(1.01)';
+        e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }"
+    @mouseout="e => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }"
+>
+    <div 
+        class="row align-items-center justify-content-center"
+        style="gap: 20px; margin: 0;"
+    >
+        <div 
+            v-if="this.imgUrl !== null" 
+            :class="this.imageClass" 
+            class="img-wrap"
+            style="flex: 1; display: flex; justify-content: center; align-items: center; border-radius: 8px; overflow: hidden; background: #f7f7f7;"
+        >
+            <img 
+                class="w-100" 
+                :src="this.imgUrl" 
+                :alt="this.imgAlt"
+                style="object-fit: cover; max-height: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;"
+            />
         </div>
-        <div v-if="this.hasText" :class="[this.textClass, this.genTextClass]" class="text-wrap">
-            <div v-if="this.model.header !== null && this.model.header !=''" class="title d-flex flex-wrap mb-2" :class="getAlignmentClass(model.alignment)">
-                <h3 class="mb-0">{{ model.header }}</h3>
+        <div 
+            v-if="this.hasText" 
+            :class="[this.textClass, this.genTextClass]" 
+            class="text-wrap"
+            style="flex: 1; padding: 20px;"
+        >
+            <div 
+                v-if="this.model.header !== null && this.model.header !=''" 
+                class="title d-flex flex-wrap mb-2" 
+                :class="getAlignmentClass(model.alignment)"
+                style="margin-bottom: 10px; text-align: left;"
+            >
+                <h3 
+                    class="mb-0" 
+                    style="font-size: 1.5rem; font-weight: bold; color: #333;"
+                >
+                    {{ model.header }}
+                </h3>
             </div>
-            <h5 v-if="this.model.subHeader !== null && this.model.subHeader!==''" class="subtitle mb-3 pb-2">{{model.subHeader}}</h5>
-            <div v-if="this.model.text !== null && this.model.text!==''" v-html="model.text" class="text pb-2"></div>
-            <div v-if="(this.model.buttonText !== null && this.model.buttonText!=='') || (this.model.buttonLink!==null && this.model.buttonLink!=='')" class="mt-3 mt-xl-4 mt-xll-5">
-                <a type="button" :href="this.model.buttonLink" class="btn btn-primary btn-arrow">{{model.buttonText}}</a>
+            <h5 
+                v-if="this.model.subHeader !== null && this.model.subHeader!==''" 
+                class="subtitle mb-3 pb-2"
+                style="font-size: 1.2rem; color: #f7f7f7; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #ddd;"
+            >
+                {{ model.subHeader }}
+            </h5>
+            <div 
+                v-if="this.model.text !== null && this.model.text!==''" 
+                v-html="model.text" 
+                class="text pb-2"
+                style="font-size: 1rem; line-height: 1.6; color: black"
+            ></div>
+            <div 
+                v-if="(this.model.buttonText !== null && this.model.buttonText!=='') || (this.model.buttonLink!==null && this.model.buttonLink!=='')" 
+                class="mt-3 mt-xl-4 mt-xll-5"
+                style="margin-top: 20px;"
+            >
+            <a 
+            type="button" 
+            :href="this.model.buttonLink" 
+            class="btn btn-primary"
+            style="display: inline-block; 
+                   padding: 10px 20px; 
+                   font-size: 1rem; 
+                   font-weight: bold; 
+                   color: #fff; 
+                   background:  var(--bs-body-bg); 
+                   border-radius: 8px; 
+                   text-decoration: none; 
+                   box-shadow: 0 1px 3px black; 
+                   transition: all 0.3s ease;"
+            @mouseover="e => {
+                e.target.style.boxShadow = '0 3px 6px black';
+                e.target.style.transform = 'scale(1.1)';
+            }"
+            @mouseout="e => {
+                e.target.style.boxShadow = '0 1px 3px black';
+                e.target.style.transform = 'scale(1)';
+            }"
+        >
+            {{model.buttonText}}
+        </a>
+        
             </div>
         </div>
     </div>

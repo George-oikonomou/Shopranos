@@ -3287,8 +3287,11 @@ html body .error-wrapper img {
   cursor: pointer;
   margin-inline: 0.5rem 0.2rem;
 }
+.dropdown-toggle:after {
+  transition: transform .5s ease-out;
+}
 .dropdown-toggle.show:after {
-  transform: scaleY(-1);
+  transform: rotate(-180deg);
 }
 .dropdown-item {
   padding: 1rem 2rem;
@@ -3306,7 +3309,7 @@ html body .error-wrapper img {
 .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-toggle.show ~ a, .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-toggle:hover ~ a, .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-toggle:focus ~ a, .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-toggle:active ~ a {
   font-weight: 700;
   text-decoration: underline !important;
-  text-underline-offset: 7px;
+  text-underline-offset: 4px;
   text-decoration-thickness: 2px !important;
 }
 .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu {
@@ -3323,7 +3326,7 @@ html body .error-wrapper img {
     display: block !important;
   }
 }
-.menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu:before {
+/* .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu:before {
   content: "";
   position: absolute;
   top: 0;
@@ -3334,7 +3337,7 @@ html body .error-wrapper img {
   z-index: 1001;
   pointer-events: none;
   border-radius: inherit;
-}
+} */
 .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu a,
 .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > .dropdown-menu span {
   z-index: 1002;
@@ -4217,7 +4220,7 @@ body textarea::placeholder {
 }
 body .cart-total {
   background: var(--bs-primary);
-  color: var(--body-bg-first-color);
+  color: white;
 }
 body .border-theme {
   border-color: var(--border-color) !important;
@@ -4274,11 +4277,11 @@ body .dropdown-menu {
   --bs-dropdown-link-hover-bg: var(--body-bg-second-color);
   --bs-dropdown-bg: var(--body-bg-first-color);
 }
-body .form-control {
+/* body .form-control {
   border-color: transparent !important;
   background-color: var(--body-bg-second-color);
   border-radius: 25px !important;
-}
+} */
 footer .input-group > .form-control {
   background-color: var(--body-bg-second-color) !important;
 }
@@ -4288,9 +4291,9 @@ body .form-control ~ .maxLength {
 body .form-control ~ .maxLength.bg-white {
   background-color: transparent;
 }
-body .form-control.form-rounded {
+/* body .form-control.form-rounded {
   border-radius: 25px !important;
-}
+} */
 body input:not([type=submit]):focus,
 body textarea:focus,
 body select:focus,
@@ -5058,22 +5061,22 @@ footer .row:not(.copyright) .navbar-brand img {
 }
 @media only screen and (min-width: 1440px) {
   footer .row:not(.copyright) .navbar-brand img {
-    max-width: min(max(235px, 235 / 1440 * 100vw), 235px) !important;
+    max-width: min(max(135px, 135 / 1440 * 100vw), 135px) !important;
   }
 }
 @media only screen and (min-width: 744px) and (max-width: 1439px) {
   footer .row:not(.copyright) .navbar-brand img {
-    max-width: min(max(235px, 235 / 744 * 100vw), 235px) !important;
+    max-width: min(max(135px, 235 / 744 * 100vw), 135px) !important;
   }
 }
 @media only screen and (max-width: 743px) {
   footer .row:not(.copyright) .navbar-brand img {
-    max-width: min(max(235px, 235 / 375 * 100vw), 235px) !important;
+    max-width: min(max(135px, 135 / 375 * 100vw), 135px) !important;
   }
 }
 @media only screen and (min-width: 1921px) {
   footer .row:not(.copyright) .navbar-brand img {
-    max-width: calc(235px * 2) !important;
+    max-width: calc(135px * 2) !important;
   }
 }
 footer .row:not(.copyright) .newsletter-wrap form {
@@ -5218,7 +5221,7 @@ footer .row:not(.copyright) .newsletter-wrap form input {
 .navbar-wrap .menu-wrap .nav-link:focus,
 .navbar-wrap .menu-wrap .nav-link:active,
 .navbar-wrap .menu-wrap .nav-link.active {
-  text-underline-offset: 7px;
+  text-underline-offset: 4px;
 }
 .navbar-wrap .menu-wrap .banners-wrap {
   max-width: 285px;
@@ -8892,9 +8895,9 @@ body header.topBarTop.stickyNavbarWrap .topbar {
     margin-inline: auto;
   }
 }
-.filterlist-content__sidebar #shop-sidebar {
+/* .filterlist-content__sidebar #shop-sidebar {
   box-shadow: 0px 4px 25px -3px rgba(0, 0, 0, 0.1) !important;
-}
+} */
 @media only screen and (min-width: 1440px) {
   .filterlist-content__sidebar #shop-sidebar {
     padding-top: min(max(32px, 32 / 1440 * 100vw), 32px) !important;

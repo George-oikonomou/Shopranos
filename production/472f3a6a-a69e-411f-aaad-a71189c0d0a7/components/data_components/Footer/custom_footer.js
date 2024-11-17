@@ -115,14 +115,14 @@ const footercustom_footer = {
                 this.AllColumns[index].navigations.forEach((_, subindex) => {
                     setTimeout(() => {
                         this.subnavAnimation[index][subindex] = true; // Fade in item
-                    }, subindex * 500); // 300ms delay for each item
+                    }, subindex * 300); // 300ms delay for each item
                 });
         
                 // Wait until all items have faded in before starting to allow fade-out again
                 setTimeout(() => {
                     // Once all fade-in actions are complete, allow for fade-out
                     this.isAnimating[index] = false;
-                }, totalItems * 500 + 500   ); // Total duration for all items to fade in
+                }, totalItems * 300 + 300   ); // Total duration for all items to fade in
             }
         }
 ,        

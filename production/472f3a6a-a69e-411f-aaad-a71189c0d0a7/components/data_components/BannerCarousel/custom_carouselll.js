@@ -19,7 +19,7 @@ const bannercarouselcustom_carouselll = {
     methods: {
         carouselInitialization() {
             if (this.model.columns > 4) {
-                this.customSlideDefinition = 2;
+                this.customSlideDefinition = 1;
             } else {
                 this.customSlideDefinition = this.model.columns;
             }
@@ -27,6 +27,7 @@ const bannercarouselcustom_carouselll = {
             let swiper = new Swiper(".banners-carousel-" + this.model.id, {
                 loop: true,
                 freeMode: false,
+                
                 watchSlidesProgress: true,
                 pagination: {
                     el: ".swiper-pagination-" + this.model.id,
@@ -37,17 +38,17 @@ const bannercarouselcustom_carouselll = {
                     prevEl: ".swiper-button-prev-" + this.model.id,
                 },
                 slidesPerView: this.customSlideDefinition,
-                slidesPerGroup: this.customSlideDefinition,
+                slidesPerGroup: 1,
                 spaceBetween: 10,
                 breakpoints: {
                     700: {
                         slidesPerView: this.customSlideDefinition,
-                        slidesPerGroup: this.customSlideDefinition,
+                        slidesPerGroup: 1,
                         spaceBetween: 10,
                     },
                     1100: {
                         slidesPerView: this.customSlideDefinition,
-                        slidesPerGroup: this.customSlideDefinition,
+                        slidesPerGroup: 1,
                         spaceBetween: 10,
                     },
                 }
