@@ -19,7 +19,7 @@ const bannercarouselcustom_carouselll = {
     methods: {
         carouselInitialization() {
             if (this.model.columns > 4) {
-                this.customSlideDefinition = 1;
+                this.customSlideDefinition = 2;
             } else {
                 this.customSlideDefinition = this.model.columns;
             }
@@ -27,7 +27,14 @@ const bannercarouselcustom_carouselll = {
             let swiper = new Swiper(".banners-carousel-" + this.model.id, {
                 loop: true,
                 freeMode: false,
-                
+                effect: 'coverflow', // Switch to 'coverflow' for better multi-slide views
+                coverflowEffect: {
+                    rotate: 30, // Adjust rotation for a 3D effect
+                    stretch: 10, // Space between slides
+                    depth: 200, // Depth of the 3D effect
+                    modifier: 1, // Control the intensity of the effect
+                    slideShadows: true,
+                },
                 watchSlidesProgress: true,
                 pagination: {
                     el: ".swiper-pagination-" + this.model.id,
@@ -40,6 +47,10 @@ const bannercarouselcustom_carouselll = {
                 slidesPerView: this.customSlideDefinition,
                 slidesPerGroup: 1,
                 spaceBetween: 10,
+                autoplay: {
+                    delay: 4000,   // Autoplay every 4 seconds
+                    disableOnInteraction: false // Continue autoplay even when user interacts
+                },
                 breakpoints: {
                     700: {
                         slidesPerView: this.customSlideDefinition,

@@ -67,24 +67,20 @@
                                     left: '0',
                                     width: '0',
                                     height: '2px',
-                                    backgroundColor: '#007bff',
+                                    backgroundColor: '#007bff', 
                                     transition: 'width 0.3s ease'
-                                }">
+                                }"> 
                             </span>
                         </a>
-                        
-                        <!-- Triangle to toggle subnav -->
                         <span v-if="nav.navigations && nav.navigations.length > 0" 
                             @click="toggleSubnav(index)"
-                            class="triangle-icon"
+                            class="dropdown-toggle"
+                            :class="{'show': subnavRotated[index]}"
                             :style="{
                                 cursor: 'pointer',
                                 display: 'inline-block',
                                 marginLeft: '8px',
-                                transform: subnavRotated[index] ? 'rotate(90deg)' : 'rotate(0deg)',
-                                transition: 'transform 0.3s ease-in'
-                            }">
-                            &#9654; <!-- Right triangle symbol -->
+                            }">    
                         </span>
                     </div>
 
@@ -188,16 +184,18 @@
 				]">
                 <ul v-if="model.socialBlock.socials.length > 0" class="d-flex list-unstyled m-0">
                     <li v-for="social in model.socialBlock.socials" class="mx-2">
+
                         <a :href="social.link" :target="social.link ? '_blank' : null" :class="('s-' + social.socialName.toLowerCase())" :class="{'large': model.footerExtended}"><span>{{social.socialName}} ##Link##</span></a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="row align-items-center text-center pt-4 copyright"
+        <div class="row align-items-center text-center copyright"
              :class="[
-				{'pt-xl-5 mt-xl-3': !(!model.footerExtended && allElements)},
-				{'pt-xl-2 mt-xl-2': !model.footerExtended && allElements}
+				{'mt-xl-3': !(!model.footerExtended && allElements)},
+				{'mt-xl-2': !model.footerExtended && allElements}
 			]">
+            <hr>
             <div class="col-12">
                 <p class="m-0">
                     © ##All rights reserved. Powered by##

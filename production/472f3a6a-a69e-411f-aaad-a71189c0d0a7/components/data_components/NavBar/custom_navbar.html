@@ -41,7 +41,7 @@
                     ]">
                     <ul v-if="navigations!==null && navigations.length>0" class="navbar-nav gap-4 h-100">
                         <template v-for="navItem in navigations">
-                            <li v-if="navItem.isMegaMenu" class="nav-item dropdown">
+                            <li v-if="navItem.isMegaMenu" class="nav-item dropdown" >
                                 <span v-if="checkIfClickable(navItem.url)" class="nav-link dropdown-toggle p-0" data-bs-toggle="dropdown"></span>
                                 <a :href="navItem.url" @click="navigation(navItem)" :class="{'active' : checkIfCurrentUrl(navItem.url)}">
                                     <img v-if="navItem.menuIcon !== null && navItem.menuIcon.link !== null" :src="navItem.menuIcon.link" width="24" height="24" :alt="navItem.menuIcon.alt" />
@@ -98,7 +98,7 @@
                                 <ul v-html="getMenuTree(navItem)" class="dropdown-menu"></ul>
                             </li>
                             <li v-else class="nav-item d-flex">
-                                <a class="nav-link p-0" :href="navItem.url" :class="{'active' : checkIfCurrentUrl(navItem.url)}">
+                                <a class="nav-link p-0" :href="navItem.url" :class="{'active' : checkIfCurrentUrl(navItem.url)}" >
                                     <img v-if="navItem.menuIcon !== null && navItem.menuIcon.link !== null" :src="navItem.menuIcon.link" width="24" height="24" :alt="navItem.menuIcon.alt" />
                                     {{navItem.navigationTitle}}
                                 </a>

@@ -14,9 +14,11 @@
 
 :root {
   --bs-border-second-color: #ffe473;
+  --body-bg-darker-second-color: #EFE7C4;
   --body-bg-third-color: rgb(251, 244, 217);
   --body-bg-darker-color: #716138;
-  --body-bg-golden-color: #DDC780;
+  --body-bg-golden-color: #EADD97;
+  --body-bg-brown-color: #968560;
   --xs-border-radius: 7px;
   --small-border-radius: 10px;
   --normal-border-radius: 25px;
@@ -66,8 +68,29 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 .custom-filterlist .model-header {
   font-family: "Felix Titling", "Inter";
   letter-spacing: 0.05em;
-  line-height: 140px;
+  line-height: normal;
   color: var(--body-bg-third-color);
+  position: relative;
+}
+
+.custom-categorieslist .model-header::before {
+  content: attr(data-text);
+  top: 70%;
+  left: 0;
+  position: absolute;
+  background: linear-gradient(to top, var(--body-bg-darker-second-color) 20%, rgba(0,0,0,0) 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(1px);
+  transform: scaleY(-1);
+  z-index: -1;
+}
+
+@media only screen and (max-width: 576px) {
+  .custom-categorieslist .model-header::before {
+    display: none;
+  }
 }
 
 .custom-categorieslist .card {
@@ -151,11 +174,13 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   text-decoration-color: var(--border-color) !important;
 }
 
-.modal-body #signin-tab {
+.modal-body #signin-tab,
+.modal-body #signup {
   color: white;
 }
 
-#signin-tab .btn {
+#signin-tab .btn,
+#signup .btn {
   border-radius: var(--normal-border-radius);
 }
 
@@ -163,20 +188,8 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   position: relative;
 }
 
-.custom-cart-wrapper:has(.no-items-wrapper)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom, var(--body-bg-first-color), rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 65%, var(--body-bg-first-color)), url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a);
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: -1;
-}
 
+/* custom-cart-wrapper with items */
 .custom-cart-wrapper:has(.items-wrapper)::before {
   content: '';
   position: absolute;
@@ -192,8 +205,8 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   opacity: 0.85;
 }
 
-.container-lg.custom-cart-wrapper:has(.items-wrapper) {
-  padding: 5% 10%;
+.container-lg.custom-cart-wrapper {
+  padding: 2% 10%;
   max-width: 100vw;
 }
 
@@ -236,15 +249,34 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 }
 
 @media only screen and (max-width: 743px) {
-  .container-lg.custom-cart-wrapper:has(.items-wrapper) {
+  .container-lg.custom-cart-wrapper {
     padding: 3%;
   }
+}
+
+/* custom-cart-wrapper no items */
+.custom-cart-wrapper:has(.no-items-wrapper)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, var(--body-bg-first-color), rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, var(--body-bg-first-color)), url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a/53cacf71-9623-4d23-8d7a-1bfa4c7c1d7a);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.custom-cart-wrapper:has(.no-items-wrapper) .search-wrapper {
+  max-width: 30vw;
 }
 
 .custom-cart-wrapper .no-items-wrapper {
   display: flex;
   align-items: center;
-  height: 30vw;
+  height: 25vw;
 }
 
 .custom-cart-wrapper .no-items-wrapper .card {
@@ -324,6 +356,21 @@ footer.border-top {
 /* footer */
 footer ul.list-unstyled {
   margin-bottom: 0px;
+}
+
+/* Product Card */
+.product-cart-qty .btn-secondary {
+  --bs-btn-bg: var(--body-bg-second-color-op70);
+  --bs-btn-border-color: transparent;
+  --bs-btn-disabled-bg: var(--body-bg-second-color-op70);
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-hover-bg: var(--body-bg-brown-color);
+  --bs-btn-hover-border-color: var(--body-bg-brown-color);
+  --bs-btn-active-bg: var(--body-bg-brown-color);
+  --bs-btn-active-border-color: var(--body-bg-brown-color);
+}
+.product-cart .add-to-cart .cart-item-circle {
+  border-radius: 50%;
 }
 
 @media only screen and (min-width: 744px) and (max-width: 1439px) {

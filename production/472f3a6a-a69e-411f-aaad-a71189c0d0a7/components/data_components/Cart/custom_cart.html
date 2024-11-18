@@ -17,6 +17,9 @@
     </div>
 </section>
 <section :id="'comp-'+this.model.id" v-else-if="(cart!=null && cart.cartItems.length > 0) || emptyCartAfterDeletion" class="container-lg cart-wrapper custom-cart-wrapper">
+    <div class="d-flex flex-wrap mb-3 pb-3 header-wrap justify-content-center">
+        <h2 class="h2 fw-bold mb-0 model-header">##MyCart##</h2>
+    </div>
     <div class="row d-flex align-items-center">
         <div class="col-lg-8">
             <!-- Actions -->
@@ -54,7 +57,6 @@
                 </div>
             </div>
             <!-- Cart Items -->
-            <h2 class="h5 fw-bold mb-3">##MyCart##</h2>
             <div class="items-wrapper">
                 <div v-for="(line, index) in cart.cartItems" v-bind:key="product" class="cart-item border-top">
                     <div class="d-flex align-items-center py-3">
@@ -204,9 +206,9 @@
         </aside>
     </div>
 </section>
-<section v-else class="container cart-wrapper custom-cart-wrapper" :id="'comp-'+this.model.id">
+<section v-else class="container-lg cart-wrapper custom-cart-wrapper" :id="'comp-'+this.model.id">
     <div class="d-flex flex-wrap mb-3 pb-3 header-wrap justify-content-center">
-        <h2 class="h2 fw-bold mb-0 model-header">Your Cart</h2>
+        <h2 class="h2 fw-bold mb-0 model-header">##MyCart##</h2>
     </div>
     <div class="row">
         <div class="col-12">

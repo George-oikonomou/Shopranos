@@ -331,7 +331,8 @@ const filterlistcustom_filterlist = {
                 if (this.filtersPosition === 0) {
                     var isRetailPriceFilterMatched = this.filterData.filters.filter(filter => filter.key === "retailPriceId" && this.maxRetailPrice === filter.max && this.minRetailPrice === filter.min);
 
-                    if (isRetailPriceFilterMatched === undefined || isRetailPriceFilterMatched.length === 0) {
+                    if ((isRetailPriceFilterMatched === undefined || isRetailPriceFilterMatched.length === 0)  && 
+                        (this.filterData.filters.find(filter => filter.key === "retailPriceId") !== undefined)) {
                         this.activeFilters.push(this.filterData.filters.find(filter => filter.key === "retailPriceId"));
                     }
                 }

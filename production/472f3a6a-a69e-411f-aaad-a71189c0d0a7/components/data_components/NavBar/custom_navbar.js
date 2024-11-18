@@ -506,6 +506,7 @@ const navbarcustom_navbar = {
                     search: this.SearchText,
                 };
                 this._findProductsByCriteria(criteria, data => {
+                    console.log(data);
                     if (data && data.length > 0) {
                         this.products = data
                         this.resultsdiv = ev.target.parentNode.querySelector('.dropdown-search .dropdown-menu');
