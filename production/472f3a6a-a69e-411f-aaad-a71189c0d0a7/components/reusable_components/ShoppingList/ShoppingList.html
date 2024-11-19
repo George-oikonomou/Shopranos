@@ -6,7 +6,9 @@
             </div>
         </div>
         <div v-if="!this.isLoadingLists" class="col-6 col-md-4 col-xl-3 position-relative" v-for="(list,index) in this.lists">
-            <a @click.stop.prevent="()=> this.shoppingListSelected(list.alias)" class="border card-list d-flex flex-column p-3 h-100">
+            <a @click.stop.prevent="()=> this.shoppingListSelected(list.alias)" class="border card-list d-flex flex-column p-3 h-100" 
+                style="display: inline-block;  
+                border-radius: 14px;">
                 <div class="d-flex justify-content-between">
                     <h5 class="mb-3">{{list.title}}</h5>
                 </div>
@@ -41,7 +43,9 @@
             </div>
         </div>
         <div class="col-12 col-md-4 col-xl-3 d-flex">
-            <div class="card" style="border:2px dashed var(--bs-primary);">
+            <div class="card" style="border:2px dashed var(--bs-primary);" 
+                style="display: inline-block;  
+                border-radius: 14px;">
                 <div class="card-body px-0 py-2">
                     <form @submit.prevent="this.createList()">
                         <h5 class="mb-3 text-center px-3">##List_Creation##</h5>
@@ -50,7 +54,24 @@
                             <input type="text" class="form-control py-2" v-model="this.title" placeholder="##Title##" required>
                         </div>
                         <div class="d-grid mt-3">
-                            <button type="submit" class="btn btn-outline-primary py-2">##Creation##</button>
+                            <button type="submit" class="btn btn-outline-primary py-2" style="display: inline-block; 
+                            padding: 10px 20px; 
+                            font-size: 1rem; 
+                            font-weight: bold; 
+                            color: #030303; 
+                            background:  var(--bs-body-bg); 
+                            border-radius: 8px; 
+                            text-decoration: none; 
+                            box-shadow: 0 1px 3px black; 
+                            transition: all 0.3s ease;"
+                     @mouseover="e => {
+                         e.target.style.boxShadow = '0 3px 6px black';
+                         e.target.style.transform = 'scale(1.1)';
+                     }"
+                     @mouseout="e => {
+                         e.target.style.boxShadow = '0 1px 3px black';
+                         e.target.style.transform = 'scale(1)';
+                     }">##Creation##</button>
                         </div>
                     </form>
                 </div>
@@ -66,7 +87,7 @@
     </div>
     <div v-else class="lists-wrapper">
         <div class="d-flex flex-wrap align-items-stretch mb-3 mb-md-5 list-actions">
-            <button class="btn btn-outline-secondary d-flex align-items-center py-2 py-md-3 px-3 px-md-5" @click="() => this.backToShoppingLists()">
+            <button class="btn btn-outline-secondary d-flex align-items-center py-2 py-md-3 px-3 px-md-5" style="border-radius: 14px;" @click="() => this.backToShoppingLists()">
                 <span class="s-arrow-long me-2"></span>##Back##
             </button>
             <div v-if="this.products !==null && this.products.length > 0" class="d-flex justify-content-end ms-auto me-0 mx-md-3">

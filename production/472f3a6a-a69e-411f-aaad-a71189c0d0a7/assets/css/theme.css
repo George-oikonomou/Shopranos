@@ -361,10 +361,6 @@
   content: "\e926";
 }
 
-:root {
-  --bs-border-second-color: #ffe473;
-}
-
 @media only screen and (min-width: 1440px) {
   :root {
     --bs-body-font-size: min(max(15px, 15 / 1440 * 100vw), 16px) !important;
@@ -4948,7 +4944,7 @@ body .profileinfo-wrapper__top span[class^=s-].large:before, body .profileinfo-w
   background-color: color-mix(in srgb, var(--bs-primary) 19%, rgba(255, 255, 255, 0.3)) !important;
 }
 body .profile-wrapper {
-  background-color: var(--body-bg-second-color);
+  background-color: var(--body-bg-first-color);
 }
 body .profile-wrapper aside {
   border-color: var(--border-color);
@@ -4960,8 +4956,8 @@ body .profile-wrapper aside .sidebar-elements.user-info .img-thumbnail span {
   color: var(--body-bg-first-color);
 }
 body .profile-wrapper aside .sidebar-elements.user-actions li a.active {
-  background-color: var(--bs-primary);
-  color: var(--body-bg-first-color);
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 body .profile-wrapper aside .sidebar-elements.user-actions li a.active:hover {
   background-color: var(--bs-primary) !important;

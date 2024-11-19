@@ -1,8 +1,31 @@
-<section :id="'comp-'+this.model.id" :class="this.model?.cssClass" class="container-fluid profile-wrapper" style="box-shadow: rgb(101, 96, 75) 4px 4px 6px 2px; filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 4px 4px);">
+<section 
+:id="'comp-'+this.model.id" 
+:class="this.model?.cssClass" 
+class="container-fluid profile-wrapper"  
+>
     <div class="row">
-        <aside class="col-lg-2 p-3 sidebar" :class="{minifySidebar: hideSidebarElements}">
+        <aside 
+        class="col-lg-2 p-3" 
+        class="sidebar" 
+        :class="{minifySidebar: hideSidebarElements}" 
+        style="border: 1px solid rgba(0, 0, 0, 0.1); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        border-radius: 12px; 
+        background: var(--body-bg-second-color);
+        padding: 20px; 
+        overflow: hidden;
+        
+        transition: transform 0.3s ease, box-shadow 0.3s ease;"
+        @mouseover="e => {
+        e.currentTarget.style.transform = 'scale(1.01)';
+        e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+        }"
+        @mouseout="e => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+        }">
             <a class="btn btn-light d-flex p-0 border-0 m-3 ms-auto text-secondary expand-sidebar" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false" @click="toggleProfileSidebar">
-                <span class="large" :class="hideSidebarElements ? 's-moveright' : 's-moveleft'"><span class="d-none">##AccountMenu##</span></span>
+                <span class="large" :class="hideSidebarElements ? 's-moveright' : 's-moveleft'"style="color: #B4AA8A;"><span class="d-none">##AccountMenu##</span></span>
             </a>
             <div v-if="this.user !== null" class="user-info p-3 sidebar-elements">
                 <div class="d-flex justify-content-center flex-column align-items-center text-center w-100 pb-3 border-bottom">
@@ -16,34 +39,69 @@
                     </div>
                 </div>
             </div>
-            <div class="user-actions p-3 sidebar-elements">
+            <div class="user-actions p-3 sidebar-elements" >
                 <ul class="list-unstyled mb-0">
                     <li>
-                        <a :class="{active: activeTab === 'orders'}" class="nav-link-style d-flex align-items-center p-3" href="#orders">
+                        <a :class="{active: activeTab === 'orders'}" class="nav-link-style d-flex align-items-center p-3" href="#orders" 
+                        style="
+                        font-family: Baskervville;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;">
                             <span class="s-orders medium"></span>
                             <span>##Orders##</span>
                         </a>
                     </li>
                     <li>
-                        <a :class="{active: activeTab === 'shoppingLists'}" class="nav-link-style d-flex align-items-center p-3" href="#shoppingLists">
+                        <a :class="{active: activeTab === 'shoppingLists'}" class="nav-link-style d-flex align-items-center p-3" href="#shoppingLists"
+                        style="
+                        font-family: Baskervville;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;">
                             <span class="s-lists medium"></span>
                             <span>##ShoppingLists##</span>
                         </a>
                     </li>
                     <li v-if="this._settings.isRewardPointsActive || this._settings.isCouponsActive">
-                        <a :class="{active: activeTab === 'loyalty'}" class="nav-link-style d-flex align-items-center p-3" href="#loyalty">
+                        <a :class="{active: activeTab === 'loyalty'}" class="nav-link-style d-flex align-items-center p-3" href="#loyalty"
+                        style="
+                        font-family: Baskervville;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;">
                             <span class="s-loyalty medium"></span>
                             <span>##Loyalty##</span>
                         </a>
                     </li>
                     <li>
-                        <a :class="{active: activeTab === 'view'}" class="nav-link-style d-flex align-items-center p-3" href="#view">
+                        <a :class="{active: activeTab === 'view'}" class="nav-link-style d-flex align-items-center p-3" href="#view"
+                        style="
+                        font-family: Baskervville;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;">
                             <span class="s-user medium"></span>
                             <span>##ProfileInfo##</span>
                         </a>
                     </li>
                     <li>
-                        <a :class="{active: activeTab === 'addresses'}" class="nav-link-style d-flex align-items-center p-3" href="#addresses">
+                        <a :class="{active: activeTab === 'addresses'}" class="nav-link-style d-flex align-items-center p-3" href="#addresses"
+                        style="
+                        font-family: Baskervville;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;">
                             <span class="s-addresses medium"></span>
                             <span>##Addresses##</span>
                         </a>
@@ -51,8 +109,24 @@
                 </ul>
             </div>
         </aside>
-        <div class="content p-0 mx-md-3">
-            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="orders">
+        <div 
+        class="content p-0 mx-md-3" 
+        style="border: 1px solid rgba(0, 0, 0, 0.1); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        border-radius: 12px; 
+        background: var(--body-bg-second-color);
+        padding: 20px; 
+        overflow: hidden; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;"
+        @mouseover="e => {
+        /* e.currentTarget.style.transform = 'scale(1.01)'; */
+        e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+        }"
+        @mouseout="e => {
+        /* e.currentTarget.style.transform = 'scale(1)'; */
+        e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+        }">
+            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="orders"  style="margin-top: 5mm;">
                 <h3 class="h5 d-flex align-items-center mb-4">
                     <span class="s-orders medium me-3 text-primary"></span>
                     <span>##Orders##</span>
@@ -63,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="shoppingLists">
+            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="shoppingLists" style="margin-top: 5mm;">
                 <h3 class="h5 d-flex align-items-center mb-4">
                     <span class="s-lists medium me-3 text-primary"></span>
                     <span>##ShoppingLists##</span>
@@ -74,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="this._settings.isRewardPointsActive || this._settings.isCouponsActive" class="d-none mx-md-3 h-100 d-flex flex-column" id="loyalty">
+            <div v-if="this._settings.isRewardPointsActive || this._settings.isCouponsActive" class="d-none mx-md-3 h-100 d-flex flex-column" id="loyalty" style="margin-top: 5mm;">
                 <h3 class="h5 d-flex align-items-center mb-4">
                     <span class="s-loyalty medium me-3 text-primary"></span>
                     <span>##Loyalty##</span>
@@ -85,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="view">
+            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="view" style="margin-top: 5mm;">
                 <h3 class="h5 d-flex align-items-center mb-4">
                     <span class="s-user medium me-3 text-primary"></span>
                     <span>##ProfileInfo##</span>
@@ -96,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="addresses">
+            <div class="d-none mx-md-3 h-100 d-flex flex-column" id="addresses" style="margin-top: 5mm;">
                 <h3 class="h5 d-flex align-items-center mb-4">
                     <span class="s-addresses medium me-3 text-primary"></span>
                     <span>##Addresses##</span>

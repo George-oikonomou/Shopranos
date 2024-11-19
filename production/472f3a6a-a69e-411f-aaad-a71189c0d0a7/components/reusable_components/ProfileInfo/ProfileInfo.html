@@ -1,6 +1,9 @@
 <div class="profileinfo-wrapper d-flex flex-column">
     <div class="profileinfo-wrapper__top mx-auto text-center mb-5">
-        <span class="s-user large mb-5 mx-auto"><span class="d-none">##UserButton##</span></span>
+        <span class="s-user large mb-5 mx-auto"
+        style="border-radius: 50%; 
+        object-fit: cover;">
+        <span class="d-none">##UserButton##</span></span>
         <h2 class="h5">##ManageProfile##</h2>
         <p class="text-muted mb-0">##ProfileDesc##</p>
     </div>
@@ -18,7 +21,25 @@
             <input class="form-control" type="email" id="account-email" v-model="user.email" disabled="">
         </div>
         <div class="col-12">
-            <button v-on:click="toggleModalChangePassword" class="btn btn-outline-primary mt-4 px-5 d-flex mx-auto" type="button">##ChangePassword##</button>
+            <button v-on:click="toggleModalChangePassword" class="btn btn-outline-primary mt-4 px-5 d-flex mx-auto" 
+            style="display: inline-block; 
+                   padding: 10px 20px; 
+                   font-size: 1rem; 
+                   font-weight: bold; 
+                   color: #030303; 
+                   background:  var(--bs-body-bg); 
+                   border-radius: 8px; 
+                   text-decoration: none; 
+                   box-shadow: 0 1px 3px black; 
+                   transition: all 0.3s ease;"
+            @mouseover="e => {
+                e.target.style.boxShadow = '0 3px 6px black';
+                e.target.style.transform = 'scale(1.1)';
+            }"
+            @mouseout="e => {
+                e.target.style.boxShadow = '0 1px 3px black';
+                e.target.style.transform = 'scale(1)';
+            }"type="button">##ChangePassword##</button>
         </div>
         <div v-if="this.toastSuccessClass == 'show'" class="d-flex justify-content-center position-absolute col-12">
             <div class="toast" :class="toastSuccessClass" role="alert" aria-live="assertive" aria-atomic="true">

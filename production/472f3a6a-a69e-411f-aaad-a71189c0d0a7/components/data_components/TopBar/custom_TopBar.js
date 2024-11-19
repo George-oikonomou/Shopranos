@@ -15,7 +15,7 @@ const topbarcustom_topbar = {
             },
             fadeOutStyle: {
                 opacity: 0,
-                transition: 'opacity 1s ease'
+                transition: 'opacity 1s ease'  
             }
         };
     },

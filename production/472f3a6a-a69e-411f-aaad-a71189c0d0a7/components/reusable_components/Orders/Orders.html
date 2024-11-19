@@ -55,9 +55,27 @@
                         </span>
                     </td>
                     <td class="py-3 py-md-4 text-center">
-                        <a v-on:click.stop.prevent="showOrder(order)" href="#" class="btn btn-primary btn-view px-5">
+                        <a v-on:click.stop.prevent="showOrder(order)" href="#" class="btn btn-primary btn-view px-5" 
+                        style="display: inline-block; 
+                        padding: 10px 20px; 
+                        font-size: 1rem; 
+                        font-weight: bold; 
+                        color: #030303; 
+                        background:  var(--bs-body-bg); 
+                        border-radius: 8px; 
+                        text-decoration: none; 
+                        box-shadow: 0 1px 3px black; 
+                        transition: all 0.3s ease;"
+                        @mouseover="e => {
+                            e.target.style.boxShadow = '0 3px 6px black';
+                            e.target.style.transform = 'scale(1.1)';
+                        }"
+                        @mouseout="e => {
+                            e.target.style.boxShadow = '0 1px 3px black';
+                            e.target.style.transform = 'scale(1)';
+                        }">
                             <span class="d-md-none s-view large"></span>
-                            <span class="d-none d-md-block">##View##</span>
+                            <span class="d-none d-md-block" style="pointer-events: none;">##View##</span>
                         </a>
                     </td>
                 </tr>
