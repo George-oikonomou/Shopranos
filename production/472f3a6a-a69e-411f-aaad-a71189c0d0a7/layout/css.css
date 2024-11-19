@@ -6,10 +6,16 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Libre Baskerville";
   font-weight: 400, 700;
   font-style: normal;
   src: url(https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap);
+}
+@font-face {
+  font-family: "Noto Serif Display";
+  font-weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+  font-style: normal;
+  src: url(https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap);
 }
 
 :root {
@@ -57,6 +63,10 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   border-radius: var(--small-border-radius) !important;
 }
 
+.custom-categorieslist .card:hover {
+  text-decoration: none;
+}
+
 .custom-categorieslist .category-text {
   padding-left: 15px;
   height: 100%;
@@ -66,14 +76,16 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 .custom-categorieslist .model-header,
 .custom-cart-wrapper .model-header,
 .custom-filterlist .model-header {
-  font-family: "Felix Titling", "Inter";
+  font-family: "Felix Titling", "Noto Serif Display", "Inter";
+  text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: normal;
   color: var(--body-bg-third-color);
   position: relative;
 }
 
-.custom-categorieslist .model-header::before {
+.custom-categorieslist .model-header:before,
+.custom-filterlist .model-header:before {
   content: attr(data-text);
   top: 70%;
   left: 0;
@@ -156,7 +168,7 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
 }
 
 #signin-modal .modal-content {
-  background-color: var(--border-color);
+  background-color: var(--body-bg-second-color);
 }
 
 #signin-modal .card-header-tabs .nav-item {
@@ -364,13 +376,32 @@ footer ul.list-unstyled {
   --bs-btn-border-color: transparent;
   --bs-btn-disabled-bg: var(--body-bg-second-color-op70);
   --bs-btn-disabled-border-color: transparent;
-  --bs-btn-hover-bg: var(--body-bg-brown-color);
-  --bs-btn-hover-border-color: var(--body-bg-brown-color);
-  --bs-btn-active-bg: var(--body-bg-brown-color);
-  --bs-btn-active-border-color: var(--body-bg-brown-color);
+  --bs-btn-hover-bg: var(--body-bg-third-color);
+  --bs-btn-hover-border-color: var(--body-bg-third-color);
+  --bs-btn-active-bg: var(--body-bg-third-color);
+  --bs-btn-active-border-color: var(--body-bg-third-color);
+}
+
+.product-cart-qty .btn-secondary.added {
+  --bs-btn-bg: var(--body-bg-brown-color);
+  --bs-btn-border-color: transparent;
+  --bs-btn-disabled-bg: var(--body-bg-brown-color);
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-hover-bg: var(--body-bg-darker-color);
+  --bs-btn-hover-border-color: var(--body-bg-darker-color);
+  --bs-btn-active-bg: var(--body-bg-darker-color);
+  --bs-btn-active-border-color: var(--body-bg-darker-color);
 }
 .product-cart .add-to-cart .cart-item-circle {
   border-radius: 50%;
+}
+
+/* Products Carouse */
+.products-carousel__wrapper .wrapper:not(.withBanner) .swiper-slide #product-carousel-thumb a {
+  border-radius: var(--small-border-radius); /* Rounded corners */
+  border-top: 3px solid var(--body-bg-darker-second-color);
+  border-left: 3px solid var(--body-bg-darker-second-color);
+  border-right: 3px solid var(--body-bg-darker-second-color);
 }
 
 @media only screen and (min-width: 744px) and (max-width: 1439px) {

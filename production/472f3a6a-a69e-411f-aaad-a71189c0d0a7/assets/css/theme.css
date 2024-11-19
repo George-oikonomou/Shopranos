@@ -3876,10 +3876,6 @@ a.btn,
   position: relative; /* Keep it relative to its container */
   margin-bottom: 1rem;
 }
-.products-carousel__wrapper .wrapper:not(.withBanner) .swiper-slide #product-carousel-thumb a {
-  border-radius: 56px; /* Rounded corners */
-  border: 3px solid var(--bs-border-second-color);
-}
 .product-wrap .product-thumb a {
   border-radius: inherit;
   display: block;
