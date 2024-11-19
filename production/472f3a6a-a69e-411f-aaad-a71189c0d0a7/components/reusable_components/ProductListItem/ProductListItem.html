@@ -9,10 +9,13 @@
                 class="no-img" />
             </a>
             <!-- Shopping Lists -->
-            <button v-if="this._resolveModules('shoppinglists')" class="btn btn-light product-list"
-                @click="handleAddToListModal()" :class="checkStyle()">
+            <button v-if="this._resolveModules('shoppinglists')" 
+                    class="btn btn-light product-list custom-shoppinglist-button"
+                @click="handleAddToListModal()"  @mouseover="hover = true" 
+                @mouseleave="hover = false"  :class="checkStyle()" :style="buttonStyle">
                 <span class="s-heart large"><span>##ShoppingLists##</span></span>
             </button>
+          
     </div>
     <div class="product-info">
         <h3 class="product-title p">

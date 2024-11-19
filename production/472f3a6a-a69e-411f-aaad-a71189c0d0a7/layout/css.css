@@ -315,6 +315,7 @@ footer.border-top {
   text-shadow: 2px 1px 7px var(--body-bg-second-color), 0 0 7px whitesmoke;
 }
 
+
 /* Product Single */
 .product-info .product-sku {
   display: none;
@@ -446,6 +447,11 @@ footer ul.list-unstyled {
 .form-control:hover,
 .form-select:hover {
   border-color: var(--border-color) !important;
+}
+
+/* s-icons */
+.product-wrap .product-list.listActive .s-heart::before {
+  color: red;
 }
 
 /* media rules */

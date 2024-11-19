@@ -10,7 +10,8 @@ const productlistitem = {
         }
     },
     data() {
-        return {
+        return {    hover: false,
+
             product: this.model,
             brands: [],
             categories: [],
@@ -20,6 +21,15 @@ const productlistitem = {
             checkIfExistsInList: false,
             activeProduct: 0
         }
+    },
+    computed: {
+        buttonStyle() {
+          return {
+            backgroundColor: this.hover ? 'var(--body-bg-second-color)' : '#f8f9fa', 
+            boxShadow: this.hover ? '0 8px 16px rgba(0, 0, 0, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1)', 
+            transform: this.hover ? 'perspective(500px) scale(1.1)' : 'perspective(500px) scale(1)' 
+          }
+        },
     },
     beforeMount() {
         if (this.isUserLoggedIn) {
