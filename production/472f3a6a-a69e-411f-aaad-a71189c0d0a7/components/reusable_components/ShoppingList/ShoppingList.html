@@ -7,7 +7,8 @@
         </div>
         <div v-if="!this.isLoadingLists" class="col-6 col-md-4 col-xl-3 position-relative" v-for="(list,index) in this.lists">
             <a @click.stop.prevent="()=> this.shoppingListSelected(list.alias)" class="border card-list d-flex flex-column p-3 h-100" 
-                style="display: inline-block;  
+                style="background: var(--body-bg-second-color);
+                display: inline-block;  
                 border-radius: 14px;">
                 <div class="d-flex justify-content-between">
                     <h5 class="mb-3">{{list.title}}</h5>
@@ -34,7 +35,7 @@
                         <span class="dot"></span>
                         <span class="d-none">##Edit##</span>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end p-0">
+                    <div class="dropdown-menu dropdown-menu-end p-0" style="border: 1px solid black; border-radius: 14px; box-sizing: border-box;">
                         <div @click.prevent="() =>this.showInput(index)" class="dropdown-item p-4">##Update_Name##</div>
                         <div @click.prevent="() =>this.shoppingListSelected(list.alias)" class="dropdown-item p-4">##View##</div>
                         <div @click.prevent="this.deleteList(list.alias)" class="dropdown-item p-4">##Delete##</div>
@@ -43,8 +44,9 @@
             </div>
         </div>
         <div class="col-12 col-md-4 col-xl-3 d-flex">
-            <div class="card" style="border:2px dashed var(--bs-primary);" 
-                style="display: inline-block;  
+            <div class="card" 
+                style="background: white;
+                display: inline-block;  
                 border-radius: 14px;">
                 <div class="card-body px-0 py-2">
                     <form @submit.prevent="this.createList()">
@@ -59,7 +61,7 @@
                             font-size: 1rem; 
                             font-weight: bold; 
                             color: #030303; 
-                            background:  var(--bs-body-bg); 
+                            background: var(--body-bg-second-color); 
                             border-radius: 8px; 
                             text-decoration: none; 
                             box-shadow: 0 1px 3px black; 
@@ -87,11 +89,11 @@
     </div>
     <div v-else class="lists-wrapper">
         <div class="d-flex flex-wrap align-items-stretch mb-3 mb-md-5 list-actions">
-            <button class="btn btn-outline-secondary d-flex align-items-center py-2 py-md-3 px-3 px-md-5" style="border-radius: 14px;" @click="() => this.backToShoppingLists()">
+            <button class="btn btn-outline-secondary d-flex align-items-center py-2 py-md-3 px-3 px-md-5" style="background: var(--body-bg-second-color); border-radius: 14px;" @click="() => this.backToShoppingLists()">
                 <span class="s-arrow-long me-2"></span>##Back##
             </button>
             <div v-if="this.products !==null && this.products.length > 0" class="d-flex justify-content-end ms-auto me-0 mx-md-3">
-                <button @click="()=> this.addAllToCart()" class="btn btn-outline-primary py-2 py-md-3 px-3 px-md-5">##Add_All##</button>
+                <button @click="()=> this.addAllToCart()" class="btn btn-outline-primary py-2 py-md-3 px-3 px-md-5" style="background: var(--body-bg-second-color); border-radius: 14px;">##Add_All##</button>
             </div>
             <div class="position-relative search-wrapper mt-3 mt-md-0 ms-md-3">
                 <input class="form-control border-theme" type="text" placeholder='##Quickly_add_product##' v-on:input="search" v-on:keyup.enter="(this.products>0)?addClickedProduct(this.products[0]):addClickedProduct(null)" v-model="searchText">
@@ -135,8 +137,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(p, i) in this.getFinalProducts">
-                                <td class="py-4 text-center align-middle border-0" :class="(i%2==1?'bg-secondary':'')">
+                            <tr v-for="(p, i) in this.getFinalProducts"  style="background: var(--body-bg-second-color);" >
+                                <td class="py-4 text-center align-middle border-0" :class="(i%2==1?'bg-secondary':'')" >
                                     {{p.product.productVariants[p.i].sku}}
                                 </td>
                                 <td class="py-4 text-center align-middle border-0" :class="(i%2==1?'bg-secondary':'')">

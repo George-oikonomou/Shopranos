@@ -10,8 +10,8 @@ const productlistitem = {
         }
     },
     data() {
-        return {    hover: false,
-
+        return {    
+            hover: false,
             product: this.model,
             brands: [],
             categories: [],

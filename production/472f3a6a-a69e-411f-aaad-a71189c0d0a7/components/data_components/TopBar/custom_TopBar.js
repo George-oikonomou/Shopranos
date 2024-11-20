@@ -31,27 +31,23 @@ const topbarcustom_topbar = {
             if (this.charIndex < currentFragment.length) {
                 this.displayedText += currentFragment[this.charIndex];
                 this.charIndex++;
-                setTimeout(this.displayNextFragment, 60);
+                // Faster typing speed (reduced timeout to 20ms)
+                setTimeout(() => this.displayNextFragment(), 50); 
             } else {
+                // Delay fade-out 2 seconds after typing finishes
                 setTimeout(() => {
                     this.fadingOut = true; 
-                    setTimeout(this.showNextFragment, 1500); 
-                }, 500);
+                    setTimeout(() => this.showNextFragment(), 500); // Shorter fade-out transition
+                }, 2000); // 2-second delay after text finishes typing
             }
         },
         showNextFragment() {
-            
-            this.fadingOut = false;
-            this.displayedText = '';
-            this.charIndex = 0;
-
-           
-            this.currentIndex = (this.currentIndex + 1) % this.fragments.length;
-
-           
-            this.startTyping();
+            this.fadingOut = false; // Reset fading state
+            this.displayedText = ''; // Clear displayed text
+            this.charIndex = 0; // Reset character index
+            this.currentIndex = (this.currentIndex + 1) % this.fragments.length; // Move to the next fragment
+            this.startTyping(); // Start typing the next fragment
         },
-
         startTyping() {
             this.displayNextFragment();
         }

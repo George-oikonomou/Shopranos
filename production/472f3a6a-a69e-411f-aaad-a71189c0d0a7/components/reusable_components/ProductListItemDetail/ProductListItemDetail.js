@@ -11,6 +11,7 @@ const productlistitemdetail = {
     },
     data() {
         return {
+            hover: false,
             product: this.model,
             title: this._filterList.record.title,
             lists: [],
@@ -31,6 +32,15 @@ const productlistitemdetail = {
                 this.initializeCheckedShoppingLists();
             });
         }
+    },
+    computed: {
+        buttonStyle() {
+          return {
+            backgroundColor: this.hover ? 'var(--body-bg-second-color)' : '#f8f9fa', 
+            boxShadow: this.hover ? '0 8px 16px rgba(0, 0, 0, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1)', 
+            transform: this.hover ? 'perspective(500px) scale(1.1)' : 'perspective(500px) scale(1)' 
+          } 
+        },
     },
     methods: {
         checkStyle() {
@@ -88,6 +98,7 @@ const productlistitemdetail = {
         handleAddToListModal() {
             this._getShoppingLists(e => {
                 this.lists = e;
+
                 this.initializeCheckedShoppingLists();
             });
             const body = document.querySelector("body");
@@ -122,7 +133,7 @@ const productlistitemdetail = {
         initializeCheckedShoppingLists() {
             this.lists.forEach(list => {
                 list.items === null ? list.items = [] : null;
-                var exists = list.items.find(i => i.productId === this._product.id && i.productVariantId === this._product.productVariants[this.activeProduct].id);
+                var exists = list.items.find(i => i.productId === this.product.id && i.productVariantId === this.product.productVariants[this.activeProduct].id);
                 exists ? list.checked = true : list.checked = false;
                 if(exists && !this.checkIfExistsInList) {
                     this.checkIfExistsInList = true;
@@ -143,11 +154,11 @@ const productlistitemdetail = {
             var checked = list.checked;
             if (list.checked) {
                 list.items.push({
-                    productId: this._product.id,
-                    productVariantId: this._product.productVariants[this.activeProduct].id,
+                    productId: this.product.id,
+                    productVariantId: this.product.productVariants[this.activeProduct].id,
                 });
             } else {
-                list.items = list.items.filter(i => i.productid !== this._product.id && i.productVariantId !== this._product.productVariants[this.activeProduct].id);
+                list.items = list.items.filter(i => i.productid !== this.product.id && i.productVariantId !== this.product.productVariants[this.activeProduct].id);
             }
             this._updateShoppingList(list, e => {
                 list = e;

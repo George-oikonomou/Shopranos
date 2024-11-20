@@ -1,6 +1,6 @@
 <div v-if="this._settings.isRewardPointsActive || this._settings.isCouponsActive" class="loyalty-wrapper row">
     <div class="col-lg-9">
-        <div v-if="this._settings.isRewardPointsActive" class="rewardPoints p-4 border" style="background-color: #E5E0C6; border-radius: 14px;">
+        <div v-if="this._settings.isRewardPointsActive" class="rewardPoints p-4 border" style="background-color: var(--body-bg-second-color); border-radius: 14px;">
             <h2 class="h6 mb-4 d-flex align-items-center"><span class="s-coin large me-3 text-primary"><span class="d-none">##RewardPoints##</span></span>##PointsAvailable##</h2>
             <div v-if="isRewardsLoading" class="spinner-border d-flex mx-auto" role="status">
                 <span class="visually-hidden">##Loading##</span>

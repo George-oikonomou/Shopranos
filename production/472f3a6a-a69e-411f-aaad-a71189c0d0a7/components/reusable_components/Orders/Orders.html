@@ -20,7 +20,7 @@
                         <p class="mb-0">{{order.code}}</p>
                     </td>
                     <td class="py-3 py-md-4 text-center">
-                        <span v-if="order.status === 'Placed'" class="text-success">
+                        <span v-if="order.status === 'Placed'" class="text-success" style ="color: green !important;">
                             ##Placed##
                         </span>
                         <span v-else-if="order.status === 'Draft'" class="text-warning ">
@@ -61,7 +61,7 @@
                         font-size: 1rem; 
                         font-weight: bold; 
                         color: #030303; 
-                        background:  var(--bs-body-bg); 
+                        background: var(--body-bg-second-color); 
                         border-radius: 8px; 
                         text-decoration: none; 
                         box-shadow: 0 1px 3px black; 

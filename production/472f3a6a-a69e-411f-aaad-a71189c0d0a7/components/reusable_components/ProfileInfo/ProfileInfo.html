@@ -10,15 +10,15 @@
     <div v-if="user !==null" class="profileinfo-wrapper__bottom mx-auto row">
         <div class="col-sm-6 mb-4">
             <label class="form-label" for="account-fn">##FirstName##</label>
-            <input class="form-control" type="text" id="account-fn" v-model="user.firstName" disabled="">
+            <input class="form-control" style= "background-color: var(--body-bg-second-color);" type="text" id="account-fn" v-model="user.firstName" disabled="">
         </div>
         <div class="col-sm-6 mb-4">
             <label class="form-label" for="account-ln">##LastName##</label>
-            <input class="form-control" type="text" id="account-ln" v-model="user.lastName" disabled="">
+            <input class="form-control" style= "background-color: var(--body-bg-second-color);" type="text" id="account-ln" v-model="user.lastName" disabled="">
         </div>
         <div class="col-sm-12 mb-4">
             <label class="form-label" for="account-email">##Email##</label>
-            <input class="form-control" type="email" id="account-email" v-model="user.email" disabled="">
+            <input class="form-control" style= "background-color: var(--body-bg-second-color);" type="email" id="account-email" v-model="user.email" disabled="">
         </div>
         <div class="col-12">
             <button v-on:click="toggleModalChangePassword" class="btn btn-outline-primary mt-4 px-5 d-flex mx-auto" 
@@ -27,7 +27,7 @@
                    font-size: 1rem; 
                    font-weight: bold; 
                    color: #030303; 
-                   background:  var(--bs-body-bg); 
+                   background: var(--body-bg-second-color);
                    border-radius: 8px; 
                    text-decoration: none; 
                    box-shadow: 0 1px 3px black; 

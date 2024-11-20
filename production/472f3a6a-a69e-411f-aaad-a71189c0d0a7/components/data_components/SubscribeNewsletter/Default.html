@@ -11,7 +11,7 @@
             <form class="subscription-form validate" action="" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
                 <div class="input-group justify-content-center">
                     <input v-model="email" class="form-control w-100 p-4 border-0" type="email" name="EMAIL" :placeholder="this._company.subDomain+'@gmail.com'" required="">
-                    <button @click.prevent="subscribeEmail" style="border-radius: 45px; background-color: #E5E0C6" class="btn btn-primary mt-4 px-5 py-2" type="submit" name="subscribe">
+                    <button @click.prevent="subscribeEmail" style="border-radius: 45px; background-color: var(--body-bg-second-color);" class="btn btn-primary mt-4 px-5 py-2" type="submit" name="subscribe">
                         <span v-bind:class="{hidden:isLoading}">{{buttonText}}</span>
                         <span v-bind:class="{hidden:!isLoading}" class="ms-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     </button>
