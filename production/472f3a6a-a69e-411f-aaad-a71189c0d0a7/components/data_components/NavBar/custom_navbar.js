@@ -4,6 +4,24 @@ const navbarcustom_navbar = {
     },
     data() {
         return {
+            englishPhrases: [
+                "sci-fi books...",
+                "romance books...",
+                "drama books...",
+                "literature/poetry books...",
+                "horror books...",
+                "any book!",
+            ],
+            greekPhrases: [
+                "sci-fi βιβλία...",
+                "ρομαντικά βιβλία...",
+                "δραματικά βιβλία...",
+                "λογοτεχνικά βιβλία/ποιήση...",
+                "βιβλία τρόμου...",
+                "οποιοδήποτε βιβλίο!",
+            ],
+            currentPhrase: "",
+            phraseIndex: 0,
             timerId: "",
             currentDate: null,
             announcements: [],
@@ -53,7 +71,7 @@ const navbarcustom_navbar = {
     mounted() {
         this.setStickyNavBar();
         this.getPositionOfElements(this.model.areas);
-
+        this.startPlaceholderAnimation();
         this.$nextTick(function () {
             this.getNumberOfComponents();
             this.setMenuBtnControl();
@@ -619,6 +637,26 @@ const navbarcustom_navbar = {
         },
         updateCart() {
             this._setCart(this.cartData);
+        },
+        getPlaceholderText() {
+            if (this.ActiveCulture === "el-GR") {
+                return `Αναζήτηση για ${this.currentPhrase}`; // Greek: "Search for"
+            }
+            return `Search for ${this.currentPhrase}`; // Default: English
+        },
+        startPlaceholderAnimation() {
+            let phrases= [];
+            if (this.ActiveCulture === "el-GR") {
+                phrases= this.greekPhrases; // Greek for "Search for books"
+            } else {
+                phrases= this.englishPhrases;
+            }
+            console.log(phrases);
+            this.currentPhrase = phrases[0]; // Set initial phrase
+            setInterval(() => {
+                this.phraseIndex = (this.phraseIndex + 1) % phrases.length;
+                this.currentPhrase = phrases[this.phraseIndex];
+            }, 3000); // Change phrase every 3 seconds
         }
     },
     created: function () {

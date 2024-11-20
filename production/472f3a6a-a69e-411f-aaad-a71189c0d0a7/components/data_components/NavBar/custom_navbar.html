@@ -153,39 +153,73 @@
                     {'ms-auto me-lg-0 ms-lg-auto': ((searchRight || searchCenter) && sticky && !menuLeft) || (sticky && menuLeft && searchRight)},
 
                 ]">
-                <input class="form-control form-rounded border-theme" type="text" placeholder="##SearchForProducts##" v-on:input="Search"
-                       @keyup.enter="enterClicked()" v-model="SearchText" />
-                <span @click="enterClicked()" class="s-search large" style="cursor: pointer"></span>
-                <div class="dropdown-search w-100 position-absolute bottom-0">
-                    <ul class="dropdown-menu w-100 px-2" data-simplebar="init"
-                        data-simplebar-auto-hide="true">
-                        <li v-for="(product, index) in products" v-bind:key="product">
-                            <div v-if="product!=null && product.productVariants!=null && product.productVariants.length>=0 "
-                                 class="d-flex align-items-center border-bottom border-theme py-2">
-                                <a class="flex-shrink-0" v-bind:href="'/product/'+ product.alias">
-                                    <img v-if="this._getMediaItem(product.mediaItems)!==null"
-                                         :src="this._getMediaItem(product.mediaItems)" width="64" :alt="product.title"
-                                         class="my-auto py-1" @error="this._handleImageError"
-                                         style="max-height: 80px; object-fit: cover" />
-                                    <img v-else :src="this._getNoImageUrl()" :alt="product.title" width="64"
-                                         class="mx-auto" />
+                <input
+    class="form-control form-rounded border-theme"
+    type="text"
+    :placeholder="getPlaceholderText(currentPhrase)"
+    v-on:input="Search"
+    @keyup.enter="enterClicked"
+    v-model="SearchText"
+/>
+<span @click="enterClicked" class="s-search large" style="cursor: pointer"></span>
+        <div class="dropdown-search w-100 position-absolute bottom-0">
+            <ul
+                class="dropdown-menu w-100 px-2"
+                data-simplebar="init"
+                data-simplebar-auto-hide="true"
+            >
+                <li
+                    v-for="(product, index) in products"
+                    v-bind:key="product"
+                >
+                    <div
+                        v-if="product && product.productVariants && product.productVariants.length >= 0"
+                        class="d-flex align-items-center border-bottom border-theme py-2"
+                    >
+                        <a class="flex-shrink-0" :href="'/product/' + product.alias">
+                            <img
+                                v-if="this._getMediaItem(product.mediaItems) !== null"
+                                :src="this._getMediaItem(product.mediaItems)"
+                                width="64"
+                                :alt="product.title"
+                                class="my-auto py-1"
+                                @error="this._handleImageError"
+                                style="max-height: 80px; object-fit: cover"
+                            />
+                            <img
+                                v-else
+                                :src="this._getNoImageUrl()"
+                                :alt="product.title"
+                                width="64"
+                                class="mx-auto"
+                            />
+                        </a>
+                        <div class="ps-2">
+                            <h6 class="widget-product-title m-0 p">
+                                <a
+                                    :href="'/product/' + product.alias"
+                                    class="product-title"
+                                >
+                                    {{ product.title }}
                                 </a>
-                                <div class="ps-2">
-                                    <h6 class="widget-product-title m-0 p">
-                                        <a v-bind:href="'/product/'+ product.alias" class="product-title">
-                                            {{product.title}}
-                                        </a>
-                                        <small v-if="product.subTitle != null" class="product-meta">{{product.subTitle}}</small>
-                                        <small v-if="product.productVariants.length>0 && product.productVariants[0].sku!=null"
-                                               class="product-meta ">
-                                            {{product.productVariants[0].sku}}
-                                        </small>
-                                    </h6>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                                <small
+                                    v-if="product.subTitle"
+                                    class="product-meta"
+                                >
+                                    {{ product.subTitle }}
+                                </small>
+                                <small
+                                    v-if="product.productVariants.length > 0 && product.productVariants[0].sku"
+                                    class="product-meta"
+                                >
+                                    {{ product.productVariants[0].sku }}
+                                </small>
+                            </h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
             </div>
 
             <!-- Extra Buttons -->

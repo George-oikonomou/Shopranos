@@ -98,7 +98,6 @@ const productlistitemdetail = {
         handleAddToListModal() {
             this._getShoppingLists(e => {
                 this.lists = e;
-
                 this.initializeCheckedShoppingLists();
             });
             const body = document.querySelector("body");
@@ -175,7 +174,7 @@ const productlistitemdetail = {
             })
             this.checkIfExistsInList = false;
             this.initializeCheckedShoppingLists();
-        }
+        } 
     }
 };
 

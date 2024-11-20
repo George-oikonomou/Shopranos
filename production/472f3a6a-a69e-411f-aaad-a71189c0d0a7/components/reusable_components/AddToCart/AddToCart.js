@@ -16,7 +16,7 @@ const addtocart = {
             uniqueKey: (Math.floor(Math.random() * 10000) + 10000).toString().substring(1)
         }
     },
-    beforeMount() { console.log(this.model);
+    beforeMount() {
         this.product.productVariants.every(variant => {
             if (variant.canOrder) {
                 this.product.productVariants[0] = variant;

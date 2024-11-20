@@ -304,7 +304,7 @@
             </div>
 
             <!-- Products -->
-            <div v-if="this.filterData!==null" class="filterlist-content__wrap row">
+            <div v-if="this.filterData!==null" class="filterlist-content__wrap row">  
                 <!-- Products Grid -->
                 <div v-if="this.displayMode==this.DisplayModeEnum.Grid" class="filterlist-single_product"
                      :class="filtersPosition == 0 && (this.filterData !== null && this.filterData.filters.length > 0) ? 'col-lg-4 col-md-6 col-sm-6 px-2' : 'col-lg-3 col-md-6 col-sm-6 px-2'"
@@ -322,7 +322,7 @@
                                 <div class="col-2" style="word-break: break-all;">{{field.label}}</div>
                             </template>
                         </template>
-                        <div :class="['col-' + this.ListDistances[2]]">test</div>
+                        <div :class="['col-' + this.ListDistances[2]]">##Price##</div>
                         <div :class="['col-' + this.ListDistances[3]]" style="display:flex;justify-content: center;">##Quantity##</div>
 
                     </div>
@@ -372,6 +372,7 @@
 
                 </div>
             </div>
+
             <!-- Pagination if Vertical Filters are active -->
             <nav v-if="filtersPosition == 0 && (this.filterData!==null && this.filterData.products!=null && this.filterData.products.length>0 && ShowPagination)" class="filterlist-pagination" aria-label="Page navigation">
                 <ul v-if="this.filterData.page !== 1" class="pagination prev">
