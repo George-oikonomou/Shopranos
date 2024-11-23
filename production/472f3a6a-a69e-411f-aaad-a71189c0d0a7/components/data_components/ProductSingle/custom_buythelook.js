@@ -33,7 +33,9 @@ const productsinglecustom_buythelook = {
             inputChange: '',
             masterRelatedProducts: [],
             totalProductQuantity: 0,
-            checkIfExistsInList: false
+            checkIfExistsInList: false,
+            attributeSet: null,
+            attributes: null
         }
     },
     beforeMount() {
@@ -90,6 +92,10 @@ const productsinglecustom_buythelook = {
         })
     },
     mounted() {        
+        // From ProductAttributes/Default.js
+        this.attributeSet = this._product?.attributeSet;
+        this.attributes = this._product?.attributes;
+        console.log(this.attributeSet, this.attributes);
         this.$nextTick(function () {
             this.mainSwiperImages = document.querySelectorAll('.main-product-swiper img');
 
@@ -134,6 +140,19 @@ const productsinglecustom_buythelook = {
         }
     },
     methods: {
+        // From ProductAttributes/Default.js
+        checkAttributes() {
+            if (this.attributes.find(a => a.attributeItemValue != null)) {
+                return true;
+            }
+            return false;
+        },
+        checkGroupAttributes(group) {
+            if (group.items.find(a => a.value != null)) {
+                return true;
+            }
+            return false;
+        },
         async addAllToCart(e) {
             var clickedElement = e.target;
             clickedElement.classList.add('clicked');

@@ -1,10 +1,10 @@
-<section :id="'comp-'+this.model.id" :class="this.model?.cssClass" class="product-single " :data-activeProduct="'prod-'+activeProduct">
+<section :id="'comp-'+this.model.id" :class="this.model?.cssClass" class="product-single custom-product-single" :data-activeProduct="'prod-'+activeProduct">
     <div class="container tab-pane fade show active" id="general" role="tabpanel">
         <div class="row">
             <div class="col-lg-6">
                 <!-- Product Images -->
                 <div class="product-gallery pe-4">
-                    <div class="swiper main-product-swiper gallery">
+                    <div class="swiper main-product-swiper gallery pt-4 pb-4">
                         <div v-if="imageList != null && imageList.length > 0" class="swiper-wrapper">
                             <div v-for="image in imageList" class="swiper-slide text-center">
                                 <a :href="image.link" class="gallery-item">
@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="imageList != null && imageList.length > 1" class="swiper side-product-swiper px-2">
+                    <div v-if="imageList != null && imageList.length > 1" class="swiper side-product-swiper px-2 pb-4">
                         <div class="swiper-wrapper">
                             <div v-for="sideImage in imageList"
                                  class="swiper-slide swiper-slide-visible swiper-slide-active swiper-slide-thumb-active text-center">
@@ -31,9 +31,8 @@
             </div>
             <div v-if="productData.productVariants.length >0" class="col-lg-6">
                 <div class="product-info ps-lg-4 ms-lg-3">
-
                     <!-- Product Title -->
-                    <h1 class="h3 product-title">
+                    <h1 class="h3 product-title mb-4">
                         <span v-if="productData.productVariants[activeProduct].title !== null && productData.productVariants[activeProduct].title !== ''">{{productData.productVariants[activeProduct].title}}</span>
                         <span v-else>{{productData.title}}</span>
                     </h1>
@@ -62,7 +61,7 @@
                     </template>
 
                     <!-- Product Availability -->
-                    <div v-if="productData.productVariants[activeProduct].additionalFeatures!= null && !productData.productVariants[activeProduct].sellOutOfStock" class="product-availability">
+                    <div v-if="productData.productVariants[activeProduct].additionalFeatures!= null && !productData.productVariants[activeProduct].sellOutOfStock" class="product-availability mb-4">
                         <p class="title">##StockAvailability##</p>
                         <div class="value">
                             <img class="me-2"
@@ -70,7 +69,7 @@
                                  height="50" width="50"
                                  :src="productData.productVariants[activeProduct].additionalFeatures.stockAvailability.image.link"
                                  :alt="productData.productVariants[activeProduct].additionalFeatures.stockAvailability?.message"
-                                 style="width: 30px;height: 30px" />
+                                 style="width: 30px;height: 30px; border-radius: 50%" />
                             <div class="text"
                                  :style="'background-color: color-mix(in srgb, '+ productData.productVariants[activeProduct].additionalFeatures.stockAvailability?.color + ' 20%, white); color:'+ productData.productVariants[activeProduct].additionalFeatures.stockAvailability?.color + ';'">
                                 {{productData.productVariants[activeProduct].additionalFeatures.stockAvailability?.message}}
@@ -80,7 +79,7 @@
 
                     <!-- Product Variants -->
                     <template v-if="checkVariantProduct(false, this.productData)">
-                        <div class="product-variants"></div>
+                        <div class="product-variants mb-4"></div>
                     </template>
 
                     <!-- Product Price/Quantity -->
@@ -179,9 +178,28 @@
     </div>
 
     <!-- Product Description -->
-    <div v-if="productData.description!=null && productData.description!='' " class="container product-desc">
-        <h2 class="product-desc__title mb-4">##Description##</h2>
-        <div class="product-desc__text" v-html="productData.description"></div>
+    <div v-if="productData.description!=null && productData.description!='' " class="container product-desc custom-product-desc-attr">
+        <div>
+            <h2 class="product-desc__title mb-4 mt-4">##Description##</h2>
+            <div class="product-desc__text" v-html="productData.description"></div>
+        </div>
+        <div v-if="attributes != null && this.attributes.length > 0 && checkAttributes()" class="product-attributes">
+            <div>
+                <div class="custom-product-attributes-list mt-4">
+                    <h6 class="h6 attributes-title p-1">Details</h6>
+                    <template v-for="(item, index) in attributes">
+                        <div v-if="item.attributeItemValue != null" class="attribute-item" v-bind:key="index">
+                            <div class="p-1">
+                                <div class="row">
+                                    <div class="col-sm-3 fw-bold">{{item.name}}:</div>
+                                    <div class="col-sm-9">{{item.attributeItemValue}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 

@@ -121,10 +121,6 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   color: var(--border-color);
 }
 
-.product-single .product-info .product-variants .attribute .variantValues .variantValue input:checked ~ label {
-  color: var(--border-color) !important;
-}
-
 .custom-categorieslist-home .category-row .card {
   width: 100%;
   flex-direction: row;
@@ -439,6 +435,10 @@ footer.border-top {
   box-shadow: none !important;
 }
 
+.products-carousel__wrapper .decor {
+  display: none;
+}
+
 
 /* forms */
 .form-select:hover {
@@ -487,20 +487,19 @@ footer.border-top {
   --bs-table-bg: none;
 }
 
-/* Text wrapper */
-.textwithimage-wrapper {
+/* Text with image wrapper */
+.textwithimage-wrapper.custom-forquotes {
   margin-block: 0 0 !important;
   max-width: 100vw !important;
-  position: relative;
 }
 
-.textwithimage-wrapper .row:has(.subtitle) {
+.textwithimage-wrapper.custom-forquotes .row:has(.subtitle) {
   display: grid;
   grid-template-columns: 50% 50%;
   width: 100vw;
 }
 
-.textwithimage-wrapper:has(.subtitle) .text-wrap::before {
+.textwithimage-wrapper.custom-forquotes:has(.subtitle) .text-wrap::before {
   content: '';
   position: absolute;
   top: 0;
@@ -509,20 +508,22 @@ footer.border-top {
   height: 100%;
   background-image: url("https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/eff8c645-9994-4f52-a46a-4a7e2ef922ec/eff8c645-9994-4f52-a46a-4a7e2ef922ec");
   z-index: -1;
+  background-size: contain;
 }
 
-.textwithimage-wrapper .img-wrap {
+.textwithimage-wrapper.custom-forquotes .img-wrap {
   padding: 0;
   width: 100%;
   height: auto;
 }
 
-.textwithimage-wrapper .img-wrap img {
+.textwithimage-wrapper.custom-forquotes .img-wrap img {
   object-fit: cover;
   border: 10px solid var(--brown-grey-color);
 }
 
-.textwithimage-wrapper .text-wrap {
+.textwithimage-wrapper.custom-forquotes .text-wrap {
+  position: relative;
   width: 100% !important;
   height: 100%;
   display: flex;
@@ -532,12 +533,12 @@ footer.border-top {
   padding-left: 3rem;
 }
 
-.textwithimage-wrapper .model-header {
+.textwithimage-wrapper.custom-forquotes .model-header {
   margin-bottom: 2rem !important;
 }
 
 @media only screen and (max-width: 743px) {
-  .textwithimage-wrapper .row:has(.subtitle) {
+  .textwithimage-wrapper.custom-forquotes .row:has(.subtitle) {
     grid-template-columns: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -549,7 +550,104 @@ footer.border-top {
   font-family: "Baskerville";
 }
 
+/* Product Single */
+.product-single .product-info .product-variants .attribute .variantValues .variantValue input:checked ~ label {
+  color: var(--border-color) !important;
+}
+
+.custom-product-single .col-lg-6 {
+  padding: 0;
+}
+
+.custom-product-single .product-gallery {
+  background-color: var(--body-bg-second-color-op7a);
+  border-radius: var(--normal-border-radius);
+}
+
+.custom-product-single .product-gallery .gallery-item {
+  width: fit-content;
+  aspect-ratio: initial !important;
+  border-radius: var(--xs-border-radius);
+  box-shadow: 10px 10px var(--body-bg-second-color), -10px -10px var(--brown-grey-color), 14px 14px 5px var(--brown-grey-color), -12px -12px 5px var(--body-bg-darker-color);
+}
+
+.custom-product-single .product-gallery .gallery-item {
+  overflow: initial !important;
+}
+
+.custom-product-single .product-gallery .main-product-swiper .gallery-item img {
+  aspect-ratio: initial;
+  width: auto;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.custom-product-single .product-info .product-title {
+  font-family: "Felix Titling", "Noto Serif Display", "Inter";
+  letter-spacing: 0.05em;
+}
+
+.custom-product-single .product-info .product-availability .title {
+  display: none;
+}
+
+.custom-product-single .product-info .product-variants .attribute .variantName {
+  display: none;
+}
+
+.custom-product-single .product-info .product-variants .attribute .variantValues .variantValue {
+  border-radius: var(--normal-border-radius);
+}
+
+.custom-product-single .product-info .product-variants .attribute .variantValues .variantValue label {
+  border-radius: inherit;
+}
+
+.custom-product-single .product-info .product-variants .attribute .variantValues .variantValue input:hover ~ label{
+  background-color: var(--body-bg-second-color-op70);
+}
+
+.custom-product-single .custom-product-desc-attr {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  background-color: var(--body-bg-second-color-op70);
+  border-radius: var(--small-border-radius);
+}
+
+.custom-product-single .custom-product-desc-attr .product-attributes {
+  margin-block: 0 !important;
+}
+
+.custom-product-single .custom-product-desc-attr .product-attributes__item.bg-secondary {
+  background-color: transparent !important;
+}
+
+.custom-product-single .custom-product-desc-attr .product-attributes__item:last-child {
+  border-bottom-color: transparent;
+}
+
+@media only screen and (max-width: 1132px) {
+  .custom-product-single .custom-product-desc-attr {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  .custom-product-single .custom-product-desc-attr {
+    grid-template-columns: 100%;
+  }
+}
+
+
 /* media rules */
+@media screen and (min-width: 1921px) {
+  :root {
+    --xs-border-radius: 11px;
+    --small-border-radius: 16px;
+    --normal-border-radius: 40px;
+    --large-border-radius: 72px;
+  }
+}
+
 @media only screen and (min-width: 744px) and (max-width: 1439px) {
   .custom-categorieslist .category-title {
     line-height: 42px; /* Reduced to maintain ratio */
