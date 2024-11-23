@@ -20,6 +20,10 @@ const categorieslistcustom_categorieslistmdsc = {
                 return description;
             };
         },
+        getCustomNavigationTitle() {
+            console.log("Nav Title " + this.navigationTitle);
+            return this.navigationTitle;
+        }
     },
     mounted() {
         if (window.location.pathname.split('/')[1] === "categories") {

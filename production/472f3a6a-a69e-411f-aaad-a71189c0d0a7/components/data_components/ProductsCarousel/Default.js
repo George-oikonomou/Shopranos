@@ -1,4 +1,4 @@
-const productscarouseldefault = {
+const productscarouselcustom_prodbookcarousel = {
     props: {
         model: Object
     },
@@ -124,7 +124,7 @@ const productscarouseldefault = {
     },
 }
 
-app.component('productscarouseldefault', {
-    extends: productscarouseldefault,
-    template: '#productscarouseldefault'
+app.component('productscarouselcustom_prodbookcarousel', {
+    extends: productscarouselcustom_prodbookcarousel,
+    template: '#productscarouselcustom_prodbookcarousel'
 });

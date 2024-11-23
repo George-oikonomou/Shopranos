@@ -1,4 +1,5 @@
-const productscarouselcustom_prodbookcarousel = {
+
+const productscarouseldefault = {
     props: {
         model: Object
     },
@@ -62,8 +63,8 @@ const productscarouselcustom_prodbookcarousel = {
                             },
                         },
                         1100: {
-                            slidesPerView: 3,
-                            slidesPerGroup: 3,
+                            slidesPerView: 4,
+                            slidesPerGroup: 4,
                             spaceBetween: 40,
                             grid: {
                                 rows: 2,
@@ -94,8 +95,8 @@ const productscarouselcustom_prodbookcarousel = {
                             spaceBetween: 16 * 3,
                         },
                         1100: {
-                            slidesPerView: 3,
-                            slidesPerGroup: 3,
+                            slidesPerView: 4,
+                            slidesPerGroup: 4,
                             spaceBetween: 16 * 3,
                         },
                     }
@@ -124,7 +125,7 @@ const productscarouselcustom_prodbookcarousel = {
     },
 }
 
-app.component('productscarouselcustom_prodbookcarousel', {
-    extends: productscarouselcustom_prodbookcarousel,
-    template: '#productscarouselcustom_prodbookcarousel'
+app.component('productscarouseldefault', {
+    extends: productscarouseldefault,
+    template: '#productscarouseldefault'
 });

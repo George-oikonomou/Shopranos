@@ -184,20 +184,18 @@
             <div class="product-desc__text" v-html="productData.description"></div>
         </div>
         <div v-if="attributes != null && this.attributes.length > 0 && checkAttributes()" class="product-attributes">
-            <div>
-                <div class="custom-product-attributes-list mt-4">
-                    <h6 class="h6 attributes-title p-1">Details</h6>
-                    <template v-for="(item, index) in attributes">
-                        <div v-if="item.attributeItemValue != null" class="attribute-item" v-bind:key="index">
-                            <div class="p-1">
-                                <div class="row">
-                                    <div class="col-sm-3 fw-bold">{{item.name}}:</div>
-                                    <div class="col-sm-9">{{item.attributeItemValue}}</div>
-                                </div>
+            <div class="mt-4 mb-4 custom-product-attributes-list">
+                <h6 class="h6 attributes-title">Details</h6>
+                <template v-for="(item, index) in attributes">
+                    <div v-if="item.attributeItemValue != null" class="attribute-item" v-bind:key="index">
+                        <div>
+                            <div class="attributes-details">
+                                <div class="fw-bold">{{item.name}}:</div>
+                                <div>{{item.attributeItemValue}}</div>
                             </div>
                         </div>
-                    </template>
-                </div>
+                    </div>
+                </template>
             </div>
         </div>
     </div>

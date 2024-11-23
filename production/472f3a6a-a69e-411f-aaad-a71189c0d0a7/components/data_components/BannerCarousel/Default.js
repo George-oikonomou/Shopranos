@@ -38,17 +38,17 @@ const bannercarouseldefault = {
                 },
                 slidesPerView: this.customSlideDefinition,
                 slidesPerGroup: this.customSlideDefinition,
-                spaceBetween: 10,
+                spaceBetween: 0,
                 breakpoints: {
                     700: {
                         slidesPerView: this.customSlideDefinition,
                         slidesPerGroup: this.customSlideDefinition,
-                        spaceBetween: 10,
+                        spaceBetween: 0,
                     },
                     1100: {
                         slidesPerView: this.customSlideDefinition,
                         slidesPerGroup: this.customSlideDefinition,
-                        spaceBetween: 10,
+                        spaceBetween: 0,
                     },
                 }
             });
