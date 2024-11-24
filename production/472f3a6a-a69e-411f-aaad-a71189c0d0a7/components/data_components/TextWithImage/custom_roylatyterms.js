@@ -1,4 +1,4 @@
-const textwithimagecustom_forquotes = {
+const textwithimagecustom_roylatyterms = {
     props: {
         model: Object
     },
@@ -8,10 +8,9 @@ const textwithimagecustom_forquotes = {
             imgAlt: this.model.header,
             image: this.model.imageOrientation,
             text: this.model.textOrientation,
-            cleanedText: '',
             imageClass: "col-md-6",
             textClass: "col-md-6",
-            genTextClass: "",
+            genTextClass: "text-start left",
             imagePosition: this.model.imagePosition !== null ? this.model.imagePosition : 0,
             hasText: (this.model.header !== null && this.model.header != '') || (this.model.subHeader !== null) || (this.model.text !== null) || (this.model.buttonText !== null && this.model.buttonLink !== null)
         }
@@ -28,15 +27,6 @@ const textwithimagecustom_forquotes = {
                 default:
                     return '';
             }
-        },
-        getCleanedModelText() {
-            if (this.model.text === null) {
-                return;
-            }
-            this.cleanedText = this.model.text
-                .replace(/^\s*<p>&quot;/, '') // Removes <p>&quot; at the start
-                .replace(/&quot;<\/p>\s*$/, '') // Removes &quot;</p> at the end
-                .replace(/&quot;\.<\/p>\s*$/, ''); // Removes &quot;.</p> at the end)
         }
     },
     created: function () {
@@ -72,13 +62,10 @@ const textwithimagecustom_forquotes = {
                 this.imageClass = "col-12";
             }
         }
-    },
-    mounted() {
-        this.getCleanedModelText();
-    },
+    }
 }
 
-app.component('textwithimagecustom_forquotes', {
-    extends: textwithimagecustom_forquotes,
-    template: '#textwithimagecustom_forquotes'
+app.component('textwithimagecustom_roylatyterms', {
+    extends: textwithimagecustom_roylatyterms,
+    template: '#textwithimagecustom_roylatyterms'
 });

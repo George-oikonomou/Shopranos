@@ -43,6 +43,7 @@ const filterlistcustom_filterlist = {
         }
         this.displayMode = this.getDisplayMode();
         this._setupFiltersThenCalculate(e => {
+            console.log(e);
             this.filterData = e;
             this.url = `/${this.filterData?.endPoint}/${this.filterData?.alias}`;
             this.minRetailPrice = this.filterData.minRetailPrice;

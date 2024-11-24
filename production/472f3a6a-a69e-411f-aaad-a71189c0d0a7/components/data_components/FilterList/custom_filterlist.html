@@ -131,7 +131,9 @@
         <!-- Vertical Filters -->
         <aside v-if="this.filterData !== null && this.filterData.filters.length > 0 && filtersPosition == 0" class="filterlist-content__sidebar col-lg-4">
             <div class="filters-btn d-lg-none" :class="showFilters ? 'mb-3' : ''">
-                <button class="btn btn-primary d-flex align-items-center" @click="toggleFilters"><span class="s-filters"></span><span class="ms-2">##Filters##</span></button>
+                <button class="btn btn-primary d-flex align-items-center" @click="toggleFilters">
+                    <span class="s-filters"></span><span class="ms-2">##Filters##</span>
+                </button>
             </div>
             <div id="shop-sidebar" :class="showFilters ? 'd-block' : 'd-none d-lg-block'">
                 <div class="">
@@ -140,30 +142,38 @@
                         <h3 v-else-if="filterGroup.key === 'Availability'" class="widget-title p" @click="toggleFilter">##Availability##</h3>
                         <h3 v-else-if="filterGroup.key === 'brandid'" class="widget-title p" @click="toggleFilter">##Brands##</h3>
                         <h3 v-else-if="filterGroup.key === 'retailPriceId'" class="widget-title p" @click="toggleFilter">##Price##</h3>
-                        <h3 v-else-if="filterGroup.key !== 'priceid'" class="widget-title p" @click="toggleFilter">{{filterGroup.name}}</h3>
-                        <ul v-if="filterGroup.key !== 'priceid' || filterGroup.key !=='retailPriceId'" class="widget-list widget-filter-list list-unstyled" data-simplebar data-simplebar-auto-hide="false">
-                            <li v-for="(value, index) in filterGroup.values" v-bind:key="value" class="widget-filter-item d-flex justify-content-between align-items-center">
+                        <h3 v-else-if="filterGroup.key !== 'priceid'" class="widget-title p" @click="toggleFilter">{{ filterGroup.name }}</h3>
+                        <ul v-if="Array.isArray(filterGroup.values)" 
+                            class="widget-list widget-filter-list list-unstyled" 
+                            data-simplebar data-simplebar-auto-hide="false">
+                            <li v-for="(value, index) in [...filterGroup.values].sort((a, b) => a.name.trim().localeCompare(b.name.trim()))" 
+                                v-bind:key="value.id" 
+                                class="widget-filter-item d-flex justify-content-between align-items-center">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-on:change="this.sendFilterRequest(1)" :disabled="value.count==0" v-model="value.selected" :id="'filter-'+value.slug">
-                                    <label class="form-check-label widget-filter-item-text" for="">{{value.name}}</label>
+                                    <input class="form-check-input" type="checkbox" v-on:change="this.sendFilterRequest(1)" 
+                                        :disabled="value.count == 0" v-model="value.selected" :id="'filter-'+value.slug">
+                                    <label class="form-check-label widget-filter-item-text" :for="'filter-'+value.slug">{{ value.name.trim() }}</label>
                                 </div>
-                                <span class="widget-filter-item__count">{{value.count}}</span>
+                                <span class="widget-filter-item__count">{{ value.count }}</span>
                             </li>
                         </ul>
-                        <template v-if="filterGroup.key =='retailPriceId'">
+
+                        <template v-if="filterGroup.key == 'retailPriceId'">
                             <div class="retail-price-slider" data-step="1">
                                 <div class="range-slider-ui"></div>
                                 <div class="d-none mt-2 mb-3 justify-content-between">
                                     <div class="w-50">
                                         <div class="input-group input-group-sm">
-                                            <span class="input-group-text">{{this._getCurrencySymbol()}}</span>
-                                            <input class="form-control range-slider-value-min" v-model="this.minRetailPrice" v-on:change="retailPriceChanged()" type="text" data-id="filter-retailPrice">
+                                            <span class="input-group-text">{{ this._getCurrencySymbol() }}</span>
+                                            <input class="form-control range-slider-value-min" v-model="this.minRetailPrice" 
+                                                v-on:change="retailPriceChanged()" type="text" data-id="filter-retailPrice">
                                         </div>
                                     </div>
-                                    <div class="w-50d">
+                                    <div class="w-50">
                                         <div class="input-group input-group-sm">
-                                            <span class="input-group-text">{{this._getCurrencySymbol()}}</span>
-                                            <input class="form-control range-slider-value-max" v-model="this.maxRetailPrice" v-on:change="retailPriceChanged()" type="text" data-id="filter-retailPrice">
+                                            <span class="input-group-text">{{ this._getCurrencySymbol() }}</span>
+                                            <input class="form-control range-slider-value-max" v-model="this.maxRetailPrice" 
+                                                v-on:change="retailPriceChanged()" type="text" data-id="filter-retailPrice">
                                         </div>
                                     </div>
                                 </div>
@@ -173,6 +183,7 @@
                 </div>
             </div>
         </aside>
+        
 
         <!-- Products -->
         <section class="filterlist-content__container" :class="this.filterData !== null && this.filterData.filters.length > 0 && filtersPosition == 0 ? 'col-lg-8' : 'col-lg-12' ">

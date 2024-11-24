@@ -20,8 +20,15 @@ const navbarcustom_navbar = {
                 "βιβλία τρόμου...",
                 "οποιοδήποτε βιβλίο!",
             ],
-            currentPhrase: "",
+            phrases: [],
+            displayedText: '',
             phraseIndex: 0,
+            charIndex: 0,
+            fadingOut: false,
+            typingSpeed: 50, // Speed of typing in milliseconds
+            fadeDuration: 1000, // Fade duration in milliseconds
+            pauseBeforeFade: 2000, // Pause before fading out
+            currentPhrase: "",
             timerId: "",
             currentDate: null,
             announcements: [],
@@ -639,25 +646,48 @@ const navbarcustom_navbar = {
             this._setCart(this.cartData);
         },
         getPlaceholderText() {
-            if (this.ActiveCulture === "el-GR") {
-                return `Αναζήτηση για ${this.currentPhrase}`; // Greek: "Search for"
-            }
-            return `Search for ${this.currentPhrase}`; // Default: English
-        },
-        startPlaceholderAnimation() {
-            let phrases= [];
-            if (this.ActiveCulture === "el-GR") {
-                phrases= this.greekPhrases; // Greek for "Search for books"
+            // Default text if animation hasn't started yet
+            return this.ActiveCulture === "el-GR"
+              ? "Αναζήτηση για" 
+              : "Search for"
+          },
+          startPlaceholderAnimation() {
+            // Initialize phrases based on language
+            this.phrases = this.ActiveCulture === "el-GR"
+              ? this.greekPhrases
+              : this.englishPhrases;
+        
+            this.currentPhrase = this.phrases[0]; // Set the first phrase
+            this.typeNextCharacter(); // Start typing
+          },
+          typeNextCharacter() {
+            if (this.charIndex < this.currentPhrase.length) {
+              this.displayedText += this.currentPhrase[this.charIndex]; // Add next character
+              this.charIndex++;
+              setTimeout(() => this.typeNextCharacter(), this.typingSpeed);
             } else {
-                phrases= this.englishPhrases;
+              setTimeout(() => this.fadeOutText(), this.pauseBeforeFade); // Pause, then fade
             }
-            console.log(phrases);
-            this.currentPhrase = phrases[0]; // Set initial phrase
-            setInterval(() => {
-                this.phraseIndex = (this.phraseIndex + 1) % phrases.length;
-                this.currentPhrase = phrases[this.phraseIndex];
-            }, 3000); // Change phrase every 3 seconds
-        }
+          },
+          fadeOutText() {
+            this.fadingOut = true; // Start fade-out animation
+            setTimeout(() => {
+              this.moveToNextPhrase();
+              this.fadingOut = false;
+            }, this.fadeDuration);
+          },
+          moveToNextPhrase() {
+            // Reset for the next phrase
+            this.displayedText = '';
+            this.charIndex = 0;
+        
+            // Cycle to the next phrase
+            this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
+            this.currentPhrase = this.phrases[this.phraseIndex];
+        
+            // Start typing again
+            this.typeNextCharacter();
+          },
     },
     created: function () {
         window.addEventListener('click', this.handleNavCartClick);
