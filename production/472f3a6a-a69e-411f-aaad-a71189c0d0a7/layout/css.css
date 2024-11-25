@@ -29,7 +29,7 @@
 }
 
 html body {
-  font-family: "Cambo", "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Vollkorn", "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .font-baskerv {
@@ -52,10 +52,43 @@ body .form-control#couponCode {
 }
 
 .custom-banner-carousel .swiper {
-  background-color: var(--body-bg-second-color);
-  border-width: 50px 50px 0px 50px;
+  background-color: transparent;
+  border-width: 25px 50px 0px 50px;
   border-style: solid;
-  border-color: var(--body-bg-second-color);
+  border-color: transparent;
+}
+
+.custom-banner-carousel .swiper-button-next,
+.custom-banner-carousel .swiper-button-prev {
+  display: none;
+}
+
+.custom-banner-carousel .banners-wrap .swiper-wrapper.fullHeight {
+  height: calc(var(--vh, 1vh) * 95 - var(--th) - var(--nh)) !important;
+}
+
+body .banner-carousel .swiper .swiper-pagination-bullet::before {
+  background-color: var(--body-bg-second-color);
+}
+
+body .swiper-pagination-bullet-active::before, body .banner-carousel .swiper .swiper-pagination-bullet-active::before {
+  background: var(--border-color) !important;
+}
+
+@media only screen and (min-width: 743px) {
+  .custom-banner-carousel .swiper-button-next {
+    right: 8px !important;
+  }
+
+  .custom-banner-carousel .swiper-button-prev {
+    left: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 744px) {
+  .custom-banner-carousel .swiper {
+    border-width: 10px 15px 0px 15px;
+  }
 }
 
 /* Dropdown Menu */
@@ -75,7 +108,6 @@ body.openMenu .menu-wrap:not(.collapsed):not(.sticky) .navbar-nav > .dropdown > 
   scrollbar-color: var(--body-bg-first-color);
   background-color: white;
   border-radius: var(--normal-border-radius);
-  font-family: "Cardo";
   font-weight: 400;
   box-shadow: 7px 7px 12px rgba(0,0,0,0.4), -7px 0px 12px rgba(0,0,0,0.4);
 }
@@ -123,7 +155,7 @@ body .navbar-nav > .dropdown > .dropdown-menu[data-bs-popper] .dropdown:hover {
 .custom-categorieslist .model-header,
 .custom-cart-wrapper .model-header,
 .custom-filterlist .model-header {
-  font-family: "Felix Titling", "Noto Serif Display", "Inter";
+  font-family: "Felix Titling", "Noto Serif", "Inter";
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: normal;
@@ -161,7 +193,7 @@ body .navbar-nav > .dropdown > .dropdown-menu[data-bs-popper] .dropdown:hover {
 }
 
 .custom-categorieslist .category-title {
-  font-family: 'Felix Titling', "Noto Serif Display", "Inter";
+  font-family: 'Felix Titling', "Noto Serif", "Inter";
   font-weight: 400;
   line-height: 58px;
 }
@@ -209,16 +241,27 @@ body .navbar-nav > .dropdown > .dropdown-menu[data-bs-popper] .dropdown:hover {
   z-index: 1;
   opacity: 0;
   background-color: var(--body-bg-second-color-op70);
-  font-family: "Felix Titling", "Noto Serif Display", "Inter";
-  transition: opacity .5s ease-in-out;
+  font-family: "Felix Titling", "Noto Serif", "Inter";
+  transition: opacity .7s ease-in-out, transform .6s ease;
+  text-align: center;
+  padding: 10px;
 }
 
-.categorieslist-book-types .card .category-img:hover::before {
+.categorieslist-book-types .card .category-img.order-1::before {
+  transform: translateX(-80%);
+}
+
+.categorieslist-book-types .card .category-img.order-2::before {
+  transform: translateX(80%);
+}
+
+.categorieslist-book-types .card:hover .category-img::before {
   opacity: 1;
+  transform: translateX(0);
 }
 
-.categorieslist-book-types .card .category-img:hover img {
-  opacity: 0.1;
+.categorieslist-book-types .card:hover .category-img img {
+  opacity: 0.3;
 }
 
 
@@ -269,21 +312,21 @@ body .navbar-nav > .dropdown > .dropdown-menu[data-bs-popper] .dropdown:hover {
   position: relative;
 }
 
-
 /* custom-cart-wrapper with items */
 .custom-cart-wrapper:has(.items-wrapper)::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 100%;
   background-image: linear-gradient(to bottom, var(--body-bg-first-color), rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, var(--body-bg-first-color)), url(https://media.shopranos.eu/media/472f3a6a-a69e-411f-aaad-a71189c0d0a7/9a1ebd4b-e251-47ab-89f8-b23b8d51134d/9a1ebd4b-e251-47ab-89f8-b23b8d51134d);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
   opacity: 0.85;
+  transform: translateY(-50%);
+  height: calc(var(--vh, 1vh) * 100 - var(--th) - var(--nh));
 }
 
 .container-lg.custom-cart-wrapper {
@@ -398,7 +441,7 @@ footer.border-top {
 }
 
 /* Products filterlist */
-.filterlist-single_product .card .product-thumb {
+.custom-filterlist .filterlist-single_product .card .product-thumb {
   box-shadow: 3px 3px 4px 1px rgba(105,105,105,0.8), 
   8px 8px 3px var(--body-bg-darker-color), 
               -6px -6px 2px var(--body-bg-third-color), 
@@ -408,14 +451,45 @@ footer.border-top {
   transition: transform 250ms ease-in-out;
 }
 
-.filterlist-single_product .card .product-thumb:hover {
+.custom-filterlist .filterlist-single_product .card .product-thumb:hover {
   transform: translate3d(4px, -4px, 5px);
 }
 
-.filterlist-single_product .card .product-thumb img:hover {
+.custom-filterlist .filterlist-single_product .card .product-thumb img:hover {
   transform: none !important;
 }
 
+/* .custom-filterlist .filterlist-single_product .card .product-thumb::before {
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  background-color: var(--body-bg-second-color-op70);
+  transition: opacity .7s ease-in-out, transform .6s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.custom-filterlist .filterlist-single_product .card .product-thumb:hover::before {
+  opacity: 1;
+}
+
+.custom-filterlist .filterlist-single_product .card .product-thumb img {
+  transition: opacity .3s ease;
+}
+
+.custom-filterlist .filterlist-single_product .card .product-thumb:hover img {
+  opacity: 0.3;
+} */
+
+/* ------ */
 .iconblock-wrapper .icon-header {
   color: white;
 }
@@ -628,6 +702,7 @@ footer.border-top {
     grid-template-columns: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-bottom: min(max(20px, 20 / 375 * 100vw), 35px) !important;
   }
 }
 
@@ -669,7 +744,7 @@ footer.border-top {
 }
 
 .custom-product-single .product-info .product-title {
-  font-family: "Felix Titling", "Noto Serif Display", "Inter";
+  font-family: "Felix Titling", "Noto Serif", "Inter";
   letter-spacing: 0.05em;
 }
 
@@ -785,6 +860,14 @@ footer.border-top {
 
 .bloglist .bloglist-categories .list-unstyled {
   gap: 7px;
+}
+
+.iconblock-wrapper .row > div .ps-3 {
+  transition: text-shadow .3s ease;
+}
+
+.iconblock-wrapper .row > div:hover .ps-3 {
+  text-shadow: 6px 6px 12px var(--body-bg-darker-golder-color);
 }
 
 /* media rules */

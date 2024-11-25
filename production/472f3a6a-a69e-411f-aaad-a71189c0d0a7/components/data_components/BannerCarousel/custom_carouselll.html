@@ -1,4 +1,4 @@
-<section v-if="this.banners !== null && this.banners.length > 0" :class="this.model?.cssClass" class="custom-banner-carousel banner-carousel" :id="'comp-'+this.model.id" :class="fullWidth? 'container' : 'container'">
+<section v-if="this.banners !== null && this.banners.length > 0" :class="this.model?.cssClass" class="custom-banner-carousel banner-carousel" :id="'comp-'+this.model.id" :class="fullWidth? 'container-fluid' : 'container'">
     <div v-if="this.model.header !== null && this.model.header !=''" :class="['d-flex', 'flex-wrap', 'mb-3 pb-3 header-wrap', getAlignmentClass(model.alignment)]">
         <h2 class="h4 fw-bold mb-0">{{ model.header }}</h2>
     </div>
@@ -18,6 +18,12 @@
                                 {'offset-md-1' : ((!banner.elements.includes(2) && banner.textOrientation == 0) || (banner.elements.includes(2) && banner.elements[0] == 1)) && this.model.columns === 1}]"
                              :class="getBannerAlignmentElement(banner.textOrientation)">
                             <p v-if="(banner.tagline!=null && banner.tagline!='')" class="banner-tagline" :style="'color:'+banner.textColor">{{banner.tagline}}</p>
+                            <h1 v-if="(banner.header!=null && banner.header!='')" class="banner-header" :style="'color:'+banner.textColor">{{banner.header}}</h1>
+                            <p v-if="(banner.subHeader!=null && banner.subHeader!='')" class="banner-subHeader" :style="'color:'+banner.textColor">{{banner.subHeader}}</p>
+                            <div v-if="(banner.text!=null && banner.text!='')" class="banner-text" :style="'color:'+banner.textColor" v-html="banner.text"></div>
+                            <div v-if="banner.buttonText!=null &&  banner.buttonText!=''" class="banner-button">
+                                <a class="btn btn-primary btn-shadow rounded-0 fs-xs " :href="banner.buttonLink">{{banner.buttonText}}</a>
+                            </div>
                         </div>
                         <div v-if="banner.elements.includes(2) && (banner.image!=null && banner.image!='')" class="img-wrap px-5 px-lg-4 px-xl-5"
                              :class="[
@@ -33,8 +39,6 @@
                 </div>
             </div>
             <div class="swiper-pagination" :class="'swiper-pagination-' + this.model.id"></div>
-            <div class="swiper-button-next" :class="'swiper-button-next-' + this.model.id"></div>
-            <div class="swiper-button-prev" :class="'swiper-button-prev-' + this.model.id"></div>
         </div>
     </div>
 </section>

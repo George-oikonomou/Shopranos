@@ -44,20 +44,15 @@ const bannercarouselcustom_carouselll = {
                     nextEl: ".swiper-button-next-" + this.model.id,
                     prevEl: ".swiper-button-prev-" + this.model.id,
                 },
-                slidesPerView: this.customSlideDefinition,
+                slidesPerView: 1, // For screens smaller than 700px
                 slidesPerGroup: 1,
                 spaceBetween: 10,
                 autoplay: {
-                    delay: 4000,   // Autoplay every 4 seconds
-                    disableOnInteraction: false // Continue autoplay even when user interacts
+                    delay: 6000,   // Autoplay every 6 seconds
+                    disableOnInteraction: true
                 },
                 breakpoints: {
                     700: {
-                        slidesPerView: this.customSlideDefinition,
-                        slidesPerGroup: 1,
-                        spaceBetween: 10,
-                    },
-                    1100: {
                         slidesPerView: this.customSlideDefinition,
                         slidesPerGroup: 1,
                         spaceBetween: 10,

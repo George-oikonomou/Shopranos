@@ -176,7 +176,7 @@
             </div>
         </div>
     </div>
-
+ 
     <!-- Product Description -->
     <div v-if="productData.description!=null && productData.description!='' " class="container product-desc custom-product-desc-attr">
         <div>
@@ -185,7 +185,7 @@
         </div>
         <div v-if="attributes != null && this.attributes.length > 0 && checkAttributes()" class="product-attributes">
             <div class="mt-4 mb-4 custom-product-attributes-list">
-                <h6 class="h6 attributes-title">Details</h6>
+                <h6 class="h6 attributes-title">##Details##</h6>
                 <template v-for="(item, index) in attributes">
                     <div v-if="item.attributeItemValue != null" class="attribute-item" v-bind:key="index">
                         <div>
