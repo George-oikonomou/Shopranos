@@ -27,7 +27,7 @@ const categorieslistcustom_categorieslist4 = {
         categoriesWithTitles() {
             return this.categories.map(category => ({
               ...category,
-              dataText: `Discover ${category.title} ...`,
+              dataText: `Discover ${category.title}`,
             }));
           }
     },
