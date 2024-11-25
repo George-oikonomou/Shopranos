@@ -19,8 +19,10 @@
                 </div>
             </div>
         </div>
-
-        <div v-if="this._settings.isRewardPointsActive" class="redeemPoints my-4">
+        
+        <br>
+        
+        <div v-if="this._settings.isRewardPointsActive" class="redeemPoints p-4 border" style="background-color: var(--body-bg-second-color); border-radius: 14px;">
             <h2 class="h6 mb-3 d-flex align-items-center">##RedeemPoints##</h2>
             <div v-if="this.redeemPoints !== null" class="redeemPoints-cards row">
                 <div v-for="redeemPoint in this.redeemPoints" class="col">

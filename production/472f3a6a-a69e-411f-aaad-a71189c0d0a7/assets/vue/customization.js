@@ -1176,6 +1176,11 @@ app.config.globalProperties._findCategoryTreeById = (categoryId, callback) => {
 app.config.globalProperties._findCollectionsByIdsThenCalculate = (collectionIds, showProducts, callback, pricingCallback) => {
     if (collectionIds == null)
         return;
+
+    if (!Array.isArray(collectionIds)) 
+        collectionIds = [collectionIds];
+    
+    
     var url = "calculate=false&collectionIds=" + collectionIds.join("&collectionIds=");
 
     url += "&expanded=" + showProducts;
